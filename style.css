@@ -1,0 +1,31 @@
+.body{
+
+}
+.jumbotron{
+	padding-top: 35px;
+	padding-right: 100px;
+	padding-bottom: 44px;
+	padding-left: 60px;
+	margin-top: 20px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	font-style: tahoma;
+}
+.row{
+	margin-left: -20px;
+	padding-left: 296px;
+	margin-right: 0px;
+	padding-right: 0px;
+}
+.container{
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-bottom: 0px;
+	padding-left: 290px;
+	margin-top: -400px;
+	margin-left: 5px;
+	margin-right: 0px;
+}
+	
