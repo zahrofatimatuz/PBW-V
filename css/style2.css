@@ -1,0 +1,38 @@
+
+
+
+/*======================Style=======================*/
+
+body {
+	font-family:'Open Sans', Arial, sans-serif;
+	font-size:14px;
+	font-weight:300;
+	line-height:1.6em;
+	color:#656565;
+}
+
+.container{
+	margin-top: -2%
+}
+
+.navbar{
+	padding-left: 2%;
+	padding: 1%;
+	border-radius: 0%;
+}
+
+#input-group{
+	margin-top: 2%;
+}
+
+.tentang hr{
+	width: 150px;
+	border-top: 4px solid #666;
+	margin-left: 0%;
+}
+
+.kontak hr{
+	width: 150px;
+	border-top: 4px solid #666;
+
+}
