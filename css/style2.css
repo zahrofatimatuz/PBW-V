@@ -2,6 +2,11 @@
 
 
 /*======================Style=======================*/
+@import url('https://fonts.googleapis.com/css?family=Lato:400,600,900');
+*{
+font-family: 'Lato', sans-serif;
+}
+
 
 body {
 	font-family:'Open Sans', Arial, sans-serif;
@@ -18,11 +23,57 @@ body {
 .navbar{
 	padding-left: 2%;
 	padding: 1%;
-	border-radius: 0%;
+	border-radius: -1%;
+	box-sizing: border-box;
+}
+
+.banner{
+	height: 400px;
+	background: #fafafa;
+	display: block;
+	background-size: cover;
+	background-image: url("../img/img1.png");
+	background-position: center;
+	text-align: center;
+	padding: 100px;	
+	color: white;
+	margin-top: -2%;
 }
 
 #input-group{
 	margin-top: 2%;
+}
+
+.daftar h2{
+margin-top: -1%;
+}
+
+.daftar button{
+width: 50%;
+margin-bottom: 5%;
+border-image: 0%;
+background-image: linear-gradient(to right, #147D14 , #1BA61B );
+color: #fff;
+font-weight: bold;
+}
+
+.daftar button:hover,
+.daftar button:active {
+    color: #A3CFB5
+}
+
+.jumbotron a{
+width: 10%;
+border-image: 0%;
+background-image: linear-gradient(to right, #147D14 , #1BA61B );
+color: #fff;);
+margin-left: 90%;
+color: #fff;
+}
+
+.jumbotron a:hover,
+.jumbotron a:active {
+    color: #A3CFB5
 }
 
 .tentang hr{
@@ -30,6 +81,7 @@ body {
 	border-top: 4px solid #666;
 	margin-left: 0%;
 }
+
 
 .kontak hr{
 	width: 150px;
