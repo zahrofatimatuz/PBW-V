@@ -1,0 +1,53 @@
+.container {
+	margin-top: 15px;
+
+}
+.body {
+	background-color: 		#F5F5F5;
+	}
+.checkbox {
+	margin-right: 30px;
+}
+.row {
+   }
+ .navbar-inverse{
+    background-color:  #F5F5F5;
+}
+.checkbox{
+	font-family: 'Text Me One', sans-serif;
+}
+.thumbnail{
+	background-color:	#FFFAFA;
+	border-radius: 0px;
+}
+.btn btn-success{
+	margin-right: 300px;
+}
+
+
+.td{
+	font-family: 'Saira', sans-serif; font-size: 18px;
+	padding-bottom: 10px; 
+}
+.bank{
+	font-family: 'Saira', sans-serif; font-size: 12px;
+}
+.content {
+
+			width: 800px;
+			height: 300px;
+			border: 2px solid #C0C0C0;
+			border-radius: 2px;
+			background-color: #FFFFFF;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 0px;
+			padding: 50px;
+		}
+.btn btn-success{
+
+}
+
+.tombol-submit{
+	margin-left: 600px;
+}
