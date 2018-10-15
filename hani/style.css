@@ -38,7 +38,7 @@
 			height: 300px;
 			border: 2px solid #C0C0C0;
 			border-radius: 2px;
-			background-color: #FFFFFF;
+			background-color: #F8FDFA;
 			margin-left: auto;
 			margin-right: auto;
 			margin-top: 0px;
@@ -50,4 +50,8 @@
 
 .tombol-submit{
 	margin-left: 600px;
+}
+.list-inline{
+	font-family: 'Poppins', sans-serif;
+	margin-top: -48px; 	
 }
