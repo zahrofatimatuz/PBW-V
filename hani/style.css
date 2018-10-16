@@ -1,3 +1,7 @@
+*{
+	font-family: 'Poppins', sans-serif;
+}
+
 .container {
 	margin-top: 15px;
 
@@ -44,9 +48,6 @@
 			margin-top: 0px;
 			padding: 50px;
 		}
-.btn btn-success{
-
-}
 
 .tombol-submit{
 	margin-left: 600px;
