@@ -12,10 +12,17 @@ body{
 	font-size:14px;
 	font-weight:300;
 	line-height:1.6em;
-	background-color: #A3CFB5;
 	margin-top: 100px;
+	background-color: #A3CFB5;
 }
 
+body{
+	background-color: #A3CFB5;
+}
+
+*h2{
+ 	color: #147D14;
+ }
 .navbar{
 	padding-left: 2%;
 	border-radius: -1%;
@@ -26,6 +33,10 @@ body{
 .navbar a{
 	color: #1BA61B;
 }
+.navbar-default{
+	border: none;
+	border-radius: 0;
+}
 
 .navbar a:hover,
 .navbar a:active {
@@ -34,7 +45,7 @@ body{
 }
 
 .navbar-brand{
-margin-top: -5%;
+	margin-top: -5%;
 }
 
 #input-group{
@@ -68,20 +79,20 @@ margin-top: -5%;
 }
 
 #poplogin form{
-    
+
 
 }
 
 
 #black {
-    display: none;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    background: rgba(0, 0, 0, 0.8);
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	background: rgba(0, 0, 0, 0.8);
 }
 
 .viewtitle {
@@ -104,7 +115,9 @@ margin-top: -5%;
 }
 
 .container{
-margin-top: 5%;
+	margin-top: 5%;
+	background-color: #fff;
+	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
 
 }
 
@@ -140,3 +153,73 @@ margin-top: 5%;
 	border-top: 4px solid #666;
 
 }
+img{
+	max-width:180px;
+	max-height: 180px;
+}
+
+input[type=file]{
+	padding:10px;}
+
+	.inputlapangan .input-group{
+		width: 100%;
+		margin-bottom: 2%;
+	}
+
+	.uploadlapangan{
+		margin-left: 5%;
+	}
+
+	.btn{
+		color: #fff;
+		background-color: #1BA61B;
+		border: none;
+		border-radius: 0px;
+	}
+
+	.btn:hover,
+	.btn:active {
+		color: #fff;
+		background-color: #EBEB12;
+		font-weight: bold;
+	}
+
+	#simpan{
+		color: #fff;
+		background-color: #1BA61B;
+		border: none;
+		border-radius: 0px;
+		width: 10%;
+		align-items: center;
+	}
+
+	#batal{
+		color: #fff;
+		background-color: #1BA61B;
+		border: none;
+		border-radius: 0px;
+		width: 10%;
+		align-content: center;
+	}
+
+	#simpan:hover,
+	#simpan:active {
+		color: #147D14;
+		background-color: #EBEB12;
+		font-weight: bold;
+	}
+
+	#batal:hover,
+	#batal:active {
+		color: #147D14;
+		background-color: #EBEB12;
+		font-weight: bold;
+	}
+	.btn-default{
+
+	}
+
+	input #btnupimg{
+		color: #fff;
+		background-color: #1BA61B;
+	}
