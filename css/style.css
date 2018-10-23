@@ -1,19 +1,44 @@
 *{
 	font-family: 'Poppins', sans-serif;
 }
+.navbar{
+	padding-left: 2%;
+	border-radius: -1%;
+	box-sizing: border-box;
+	background-color: #fff;
+}
 
+.navbar a{
+	color: #1BA61B;
+}
+.navbar-default{
+	border: none;
+	border-radius: 0;
+}
+
+.navbar a:hover,
+.navbar a:active {
+	color: #147D14;
+	background-color: #fff;
+}
+
+.navbar-brand{
+	margin-top: -5%;
+}
 .container {
-	margin-top: 15px;
+	margin-top: 5%;
 
 }
 .body {
 	background-color: 		#F5F5F5;
 	}
+
 .checkbox {
 	margin-right: 30px;
 }
 .row {
    }
+
  .navbar-inverse{
     background-color:  #F5F5F5;
 }
@@ -25,9 +50,20 @@
 	border-radius: 0px;
 }
 .btn btn-success{
-	margin-right: 300px;
+	
 }
 
+
+.btn:hover,
+.btn:active {
+	color: #147D14;
+	background-color: #EBEB12;
+	font-weight: bold;
+}
+
+.lannjut{
+	margin-left: 70%;
+}
 
 .td{
 	font-family: 'Saira', sans-serif; font-size: 18px;
@@ -39,20 +75,60 @@
 .content {
 
 			width: 800px;
-			height: 300px;
-			border: 2px solid #C0C0C0;
 			border-radius: 2px;
-			background-color: #F8FDFA;
+			background-color: #fff;
 			margin-left: auto;
 			margin-right: auto;
-			margin-top: 0px;
+			margin-top: 50px;
 			padding: 50px;
 		}
 
 .tombol-submit{
 	margin-left: 600px;
 }
+
+.tombol-submit #lanjut{
+	margin-left: 500px;
+	background-color: #1BA61B;
+	color: #fff; 
+	width: 150px;
+}
+
+
+.tombol-submit #lanjut:hover,
+.tombol-submit #lanjut:active {
+	color: #147D14;
+	background-color: #EBEB12;
+	font-weight: bold;
+}
+
 .list-inline{
 	font-family: 'Poppins', sans-serif;
 	margin-top: -48px; 	
+}
+
+.step{
+	position: absolute;
+	background-position: center;
+}
+input #btnupimg{
+	color: #fff;
+	background-color: #1BA61B;
+}
+
+input[type=file]{
+	padding:10px;
+}
+
+#upimg{
+	max-height: 180px;
+	max-width: 180px;
+}
+
+.langkah #langkah{
+display: block;
+margin-left: auto;
+}
+.btn btn-default {
+	margin-right: 300px;
 }

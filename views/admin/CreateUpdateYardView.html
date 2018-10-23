@@ -10,10 +10,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- css -->
-	<link href="../css/style2.css" rel="stylesheet">
+	<link href="../../css/style2.css" rel="stylesheet">
 
 	<!-- Bootstrap -->
-	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../../css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- Bootstrap Online-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -42,7 +42,7 @@
 				</button>
 
 				<a class="navbar-brand" href="#home">
-					<img alt="Brand" src="../img/logo.png">
+					<img alt="Brand" src="../../img/logo.png">
 				</a>
 			</div>
 
@@ -61,10 +61,10 @@
 			<div class="inputlapangan">
 				<div class="row">
 					
-						<h2><strong><center>Tambah Lapangan</center></strong></h2>
-						<br>
+					<h2><strong><center>Tambah Lapangan</center></strong></h2>
+					<br>
 
-						<div class="col-md-7">
+					<div class="col-md-7">
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="Nama Lapangan" aria-describedby="basic-addon1">
 						</div>
@@ -86,35 +86,36 @@
 							<textarea class="form-control" rows="5" id="comment"></textarea>
 						</div>						
 					</div>
+					
 
 					<div class="col-md-5">
 						<div class="uploadlapangan">
 
-						<img id="upimg" class='thumbnail' src="http://placehold.it/180" alt="your image"/>  
+							<img id="upimg" class='thumbnail' src="http://placehold.it/180" alt="your image"/>  
 
-						<script type="text/javascript">
-							function readURL(input) {
-								if (input.files && input.files[0]) {
-									var reader = new FileReader();
+							<script type="text/javascript">
+								function readURL(input) {
+									if (input.files && input.files[0]) {
+										var reader = new FileReader();
 
-									reader.onload = function (e) {
-										$('#upimg')
-										.attr('src', e.target.result);
-									};
+										reader.onload = function (e) {
+											$('#upimg')
+											.attr('src', e.target.result);
+										};
 
-									reader.readAsDataURL(input.files[0]);
+										reader.readAsDataURL(input.files[0]);
+									}
 								}
-							}
-						</script>
-						<input type='file' id="btnupimg" onchange="readURL(this);" />
-					</div>
+							</script>
+							<input type='file' id="btnupimg" onchange="readURL(this);" />
+						</div>
 					</div>
 				</div>
 				<input type="submit" value="Simpan" id="simpan" class="btn simpan rounded-0">
 				<input type="submit" value="Batal" id="batal" class="btn batal">
 			</div>
 			<br>
-		<br>
+			<br>
 		</div>
 
 
@@ -128,8 +129,8 @@
 
 	</footer>
 
-	<script src="../js/jquery-3.3.1.min"></script>
-	<script src="../js/bootstrap.min.js"></script>
+	<script src="../../js/jquery-3.3.1.min"></script>
+	<script src="../../js/bootstrap.min.js"></script>
 </div>
 </div>
 </body>

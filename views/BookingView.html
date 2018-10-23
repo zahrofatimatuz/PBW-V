@@ -12,12 +12,42 @@
 </head>
 <body class="body">
 
+<nav class="navbar nav-pills navbar-fixed-top">
+    <div class="container-fluid">
+
+      <div class="navbar-header">
+
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="navbar-brand" href="#home">
+          <img alt="Brand" src="../img/logo.png">
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" onclick="tampilkan_daftar();" class="register">Daftar</a></li>
+          <li><a href="#" onclick="tampilkan_masuk();" class="login">Masuk</a></li>
+          <li><a href="#pesan">Pesanan</a></li>
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#kontak">Contact</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
   
 <div class="container"> 
  <center><h5 class="text-muted"> booking lapangan sesukamu</h5></center>
-   <center><h2> booked yours</h2></center>
-   <center></center>
-   <center><h5 class="text-muted">Mungkin dengan kalimat pertama itu dapat 2 orang pengunjung; 1 orang karena pecinta makanan ringan, yang 1 lagi karena gak sengaja klik, sisanya yang melihat gak peduli sama promosi tersebut sama sekali.</h5></center>
+   <center><h2>Pilih Lapangan dan Jamnya</h2></center>
+   <div class="langkah">
+    <img class="center-block" id="langkah" src="../img/step/step-1.png">
+    </div>
    <br>
    <br>
 
@@ -27,420 +57,526 @@
       <div class="thumbnail">
         <img src="../img/lap3.png" alt="barang1">
         <div class="caption">
-        <center><h3>Lapangan  1</h3></center>
-        <p style="font-size: 12px;">lapangan dalam kondisi baik dengan dilengkapi rumput</p>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 09.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 10.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 11.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 12.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 13.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 14.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 15.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 16.00 </label>
-        </div>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 17.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 18.00 </label>
-        </div>
-        <div class="checkbox">
-         <label>
-              <input type="checkbox" value=""> jam 19.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 20.00 </label>
-        </div>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 21.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 22.00 </label>
-        </div>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 23.00 </label>
-        </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
+          <center><h3>Lapangan  1</h3></center>
+          <p style="font-size: 12px;">lapangan dalam kondisi baik dengan dilengkapi rumput</p>
+          <div class="bs-example">
+            <div class="panel-group" id="accordion">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Pilih Jam</a>
+                  </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value=""> jam 09.00 </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" value=""> jam 09.00 </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" value=""> jam 10.00 </label>
+                        </div>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" value=""> jam 11.00 </label>
+                          </div>
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" value=""> jam 12.00 </label>
+                            </div>
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox" value=""> jam 13.00 </label>
+                              </div>
+                              <div class="checkbox">
+                                <label>
+                                  <input type="checkbox" value=""> jam 14.00 </label>
+                                </div>
+                                <div class="checkbox">
+                                  <label>
+                                    <input type="checkbox" value=""> jam 15.00 </label>
+                                  </div>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" value=""> jam 16.00 </label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" value=""> jam 17.00 </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" value=""> jam 18.00 </label>
+                                        </div>
+                                        <div class="checkbox">
+                                         <label>
+                                          <input type="checkbox" value=""> jam 19.00 </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" value=""> jam 20.00 </label>
+                                          </div>
+                                          <div class="checkbox">
+                                            <label>
+                                              <input type="checkbox" value=""> jam 21.00 </label>
+                                            </div>
+                                            <div class="checkbox">
+                                              <label>
+                                                <input type="checkbox" value=""> jam 22.00 </label>
+                                              </div>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" value=""> jam 23.00 </label>
+                                                </div> 
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+
+<div class="col-md-2">
       <div class="thumbnail">
-        <img src="../img/lap4.png" alt="barang2">
+        <img src="../img/lap3.png" alt="barang1">
         <div class="caption">
-        <center><h3>Lapangan 2</h3></center>
-        <p style="font-size: 12px;">lapangan dalam kondisi baik dengan dilengkapi rumput</p>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 09.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 10.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 11.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 12.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 13.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 14.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 15.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 16.00 </label>
-        </div>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 17.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 18.00 </label>
-        </div>
-        <div class="checkbox">
-         <label>
-              <input type="checkbox" value=""> jam 19.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 20.00 </label>
-        </div>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 21.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 22.00 </label>
-        </div>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 23.00 </label>
-        </div> 
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
+          <center><h3>Lapangan  1</h3></center>
+          <p style="font-size: 12px;">lapangan dalam kondisi baik dengan dilengkapi rumput</p>
+          <div class="bs-example">
+            <div class="panel-group" id="accordion">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Pilih Jam</a>
+                  </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value=""> jam 09.00 </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" value=""> jam 09.00 </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" value=""> jam 10.00 </label>
+                        </div>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" value=""> jam 11.00 </label>
+                          </div>
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" value=""> jam 12.00 </label>
+                            </div>
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox" value=""> jam 13.00 </label>
+                              </div>
+                              <div class="checkbox">
+                                <label>
+                                  <input type="checkbox" value=""> jam 14.00 </label>
+                                </div>
+                                <div class="checkbox">
+                                  <label>
+                                    <input type="checkbox" value=""> jam 15.00 </label>
+                                  </div>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" value=""> jam 16.00 </label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" value=""> jam 17.00 </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" value=""> jam 18.00 </label>
+                                        </div>
+                                        <div class="checkbox">
+                                         <label>
+                                          <input type="checkbox" value=""> jam 19.00 </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" value=""> jam 20.00 </label>
+                                          </div>
+                                          <div class="checkbox">
+                                            <label>
+                                              <input type="checkbox" value=""> jam 21.00 </label>
+                                            </div>
+                                            <div class="checkbox">
+                                              <label>
+                                                <input type="checkbox" value=""> jam 22.00 </label>
+                                              </div>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" value=""> jam 23.00 </label>
+                                                </div> 
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+<div class="col-md-2">
       <div class="thumbnail">
-        <img src="../img/lap5.png" alt="barang3">
+        <img src="../img/lap3.png" alt="barang1">
         <div class="caption">
-        <center><h3>Lapangan 3</h3></center>
-        <p style="font-size: 12px;">lapangan dalam kondisi baik dengan dilengkapi rumput</p>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 09.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 10.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 11.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 12.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 13.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 14.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 15.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 16.00 </label>
-        </div>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 17.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 18.00 </label>
-        </div>
-        <div class="checkbox">
-         <label>
-              <input type="checkbox" value=""> jam 19.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 20.00 </label>
-        </div>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 21.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 22.00 </label>
-        </div>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 23.00 </label>
-        </div>
-        </div>
-        </div>
-      </div>
-       <div class="col-md-2">
+          <center><h3>Lapangan  1</h3></center>
+          <p style="font-size: 12px;">lapangan dalam kondisi baik dengan dilengkapi rumput</p>
+          <div class="bs-example">
+            <div class="panel-group" id="accordion">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Pilih Jam</a>
+                  </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value=""> jam 09.00 </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" value=""> jam 09.00 </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" value=""> jam 10.00 </label>
+                        </div>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" value=""> jam 11.00 </label>
+                          </div>
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" value=""> jam 12.00 </label>
+                            </div>
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox" value=""> jam 13.00 </label>
+                              </div>
+                              <div class="checkbox">
+                                <label>
+                                  <input type="checkbox" value=""> jam 14.00 </label>
+                                </div>
+                                <div class="checkbox">
+                                  <label>
+                                    <input type="checkbox" value=""> jam 15.00 </label>
+                                  </div>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" value=""> jam 16.00 </label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" value=""> jam 17.00 </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" value=""> jam 18.00 </label>
+                                        </div>
+                                        <div class="checkbox">
+                                         <label>
+                                          <input type="checkbox" value=""> jam 19.00 </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" value=""> jam 20.00 </label>
+                                          </div>
+                                          <div class="checkbox">
+                                            <label>
+                                              <input type="checkbox" value=""> jam 21.00 </label>
+                                            </div>
+                                            <div class="checkbox">
+                                              <label>
+                                                <input type="checkbox" value=""> jam 22.00 </label>
+                                              </div>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" value=""> jam 23.00 </label>
+                                                </div> 
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+<div class="col-md-2">
       <div class="thumbnail">
-        <img src="../img/lap4.png" alt="barang2">
+        <img src="../img/lap3.png" alt="barang1">
         <div class="caption">
-        <center><h3>Lapangan 4</h3></center>
-        <p style="font-size: 12px;">lapangan dalam kondisi baik dengan dilengkapi rumput</p>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 09.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 10.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 11.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 12.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 13.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 14.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 15.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 16.00 </label>
-        </div>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 17.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 18.00 </label>
-        </div>
-        <div class="checkbox">
-         <label>
-              <input type="checkbox" value=""> jam 19.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 20.00 </label>
-        </div>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 21.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 22.00 </label>
-        </div>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 23.00 </label>
-        </div> 
-        </div>
-      </div>
-    </div>
-     <div class="col-md-2">
+          <center><h3>Lapangan  1</h3></center>
+          <p style="font-size: 12px;">lapangan dalam kondisi baik dengan dilengkapi rumput</p>
+          <div class="bs-example">
+            <div class="panel-group" id="accordion">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Pilih Jam</a>
+                  </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value=""> jam 09.00 </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" value=""> jam 09.00 </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" value=""> jam 10.00 </label>
+                        </div>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" value=""> jam 11.00 </label>
+                          </div>
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" value=""> jam 12.00 </label>
+                            </div>
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox" value=""> jam 13.00 </label>
+                              </div>
+                              <div class="checkbox">
+                                <label>
+                                  <input type="checkbox" value=""> jam 14.00 </label>
+                                </div>
+                                <div class="checkbox">
+                                  <label>
+                                    <input type="checkbox" value=""> jam 15.00 </label>
+                                  </div>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" value=""> jam 16.00 </label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" value=""> jam 17.00 </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" value=""> jam 18.00 </label>
+                                        </div>
+                                        <div class="checkbox">
+                                         <label>
+                                          <input type="checkbox" value=""> jam 19.00 </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" value=""> jam 20.00 </label>
+                                          </div>
+                                          <div class="checkbox">
+                                            <label>
+                                              <input type="checkbox" value=""> jam 21.00 </label>
+                                            </div>
+                                            <div class="checkbox">
+                                              <label>
+                                                <input type="checkbox" value=""> jam 22.00 </label>
+                                              </div>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" value=""> jam 23.00 </label>
+                                                </div> 
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+<div class="col-md-2">
       <div class="thumbnail">
-        <img src="../img/lap4.png" alt="barang2">
+        <img src="../img/lap3.png" alt="barang1">
         <div class="caption">
-        <center><h3>Lapangan 5</h3></center>
-        <p style="font-size: 12px;">lapangan dalam kondisi baik dengan dilengkapi rumput</p>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 09.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 10.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 11.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 12.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 13.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 14.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 15.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 16.00 </label>
-        </div>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 17.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 18.00 </label>
-        </div>
-        <div class="checkbox">
-         <label>
-              <input type="checkbox" value=""> jam 19.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 20.00 </label>
-        </div>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 21.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 22.00 </label>
-        </div>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 23.00 </label>
-        </div> 
-        </div>
-      </div>
-    </div>
-     <div class="col-md-2">
+          <center><h3>Lapangan  1</h3></center>
+          <p style="font-size: 12px;">lapangan dalam kondisi baik dengan dilengkapi rumput</p>
+          <div class="bs-example">
+            <div class="panel-group" id="accordion">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Pilih Jam</a>
+                  </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value=""> jam 09.00 </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" value=""> jam 09.00 </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" value=""> jam 10.00 </label>
+                        </div>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" value=""> jam 11.00 </label>
+                          </div>
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" value=""> jam 12.00 </label>
+                            </div>
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox" value=""> jam 13.00 </label>
+                              </div>
+                              <div class="checkbox">
+                                <label>
+                                  <input type="checkbox" value=""> jam 14.00 </label>
+                                </div>
+                                <div class="checkbox">
+                                  <label>
+                                    <input type="checkbox" value=""> jam 15.00 </label>
+                                  </div>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" value=""> jam 16.00 </label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" value=""> jam 17.00 </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" value=""> jam 18.00 </label>
+                                        </div>
+                                        <div class="checkbox">
+                                         <label>
+                                          <input type="checkbox" value=""> jam 19.00 </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" value=""> jam 20.00 </label>
+                                          </div>
+                                          <div class="checkbox">
+                                            <label>
+                                              <input type="checkbox" value=""> jam 21.00 </label>
+                                            </div>
+                                            <div class="checkbox">
+                                              <label>
+                                                <input type="checkbox" value=""> jam 22.00 </label>
+                                              </div>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" value=""> jam 23.00 </label>
+                                                </div> 
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+ <div class="col-md-2">
       <div class="thumbnail">
-        <img src="../img/lap4.png" alt="barang2">
+        <img src="../img/lap3.png" alt="barang1">
         <div class="caption">
-        <center><h3>Lapangan 6</h3></center>
-        <p style="font-size: 12px;">lapangan dalam kondisi baik dengan dilengkapi rumput</p>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 09.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 10.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 11.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 12.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 13.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 14.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 15.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 16.00 </label>
-        </div>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 17.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 18.00 </label>
-        </div>
-        <div class="checkbox">
-         <label>
-              <input type="checkbox" value=""> jam 19.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 20.00 </label>
-        </div>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 21.00 </label>
-        </div>
-        <div class="checkbox">
-          <label>
-              <input type="checkbox" value=""> jam 22.00 </label>
-        </div>
-        <div class="checkbox">
-        <label>
-              <input type="checkbox" value=""> jam 23.00 </label>
-        </div> 
-        </div>
-      </div>
-    </div>
-    </div>
+          <center><h3>Lapangan  1</h3></center>
+          <p style="font-size: 12px;">lapangan dalam kondisi baik dengan dilengkapi rumput</p>
+          <div class="bs-example">
+            <div class="panel-group" id="accordion">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Pilih Jam</a>
+                  </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value=""> jam 09.00 </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" value=""> jam 09.00 </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" value=""> jam 10.00 </label>
+                        </div>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" value=""> jam 11.00 </label>
+                          </div>
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" value=""> jam 12.00 </label>
+                            </div>
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox" value=""> jam 13.00 </label>
+                              </div>
+                              <div class="checkbox">
+                                <label>
+                                  <input type="checkbox" value=""> jam 14.00 </label>
+                                </div>
+                                <div class="checkbox">
+                                  <label>
+                                    <input type="checkbox" value=""> jam 15.00 </label>
+                                  </div>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" value=""> jam 16.00 </label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" value=""> jam 17.00 </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" value=""> jam 18.00 </label>
+                                        </div>
+                                        <div class="checkbox">
+                                         <label>
+                                          <input type="checkbox" value=""> jam 19.00 </label>
+                                        </div>
+                                        <div class="checkbox">
+                                          <label>
+                                            <input type="checkbox" value=""> jam 20.00 </label>
+                                          </div>
+                                          <div class="checkbox">
+                                            <label>
+                                              <input type="checkbox" value=""> jam 21.00 </label>
+                                            </div>
+                                            <div class="checkbox">
+                                              <label>
+                                                <input type="checkbox" value=""> jam 22.00 </label>
+                                              </div>
+                                              <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox" value=""> jam 23.00 </label>
+                                                </div> 
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
     
-    <form action="coba.html" method="">
-    <button type="submit" class="btn btn-success"> Next </button>
+    <form action="PayView.html" id="lanjut" method="">
+      <div class="tombol-submit">
+    <button type="submit" id="lanjut" class="btn"> Next </button>
       
 
       

@@ -21,8 +21,9 @@ body{
 }
 
 *h2{
- 	color: #147D14;
- }
+	color: #147D14;
+}
+
 .navbar{
 	padding-left: 2%;
 	border-radius: -1%;
@@ -126,7 +127,7 @@ body{
 }
 
 
-.tanggal a{
+#tanggal{
 	margin-top: -10%;
 	width: 20%;
 	border-image: 0%;
@@ -136,9 +137,12 @@ body{
 	color: #fff;
 }
 
-.tanggal a:hover,
-.tanggal a:active {
-	color: #A3CFB5;
+#tanggal:hover,
+#tanggal:active {
+	color: #147D14;
+	background-color: #EBEB12;
+	background-image: linear-gradient(to right, #E6D815, #FFEE00);
+	font-weight: bold;
 }
 
 .tentang hr{
@@ -153,73 +157,86 @@ body{
 	border-top: 4px solid #666;
 
 }
-img{
-	max-width:180px;
-	max-height: 180px;
-}
 
 input[type=file]{
-	padding:10px;}
+	padding:10px;
+}
 
-	.inputlapangan .input-group{
-		width: 100%;
-		margin-bottom: 2%;
-	}
+#upimg{
+	max-height: 180px;
+	max-width: 180px;
+}
 
-	.uploadlapangan{
-		margin-left: 5%;
-	}
+.inputlapangan .input-group{
+	width: 100%;
+	margin-bottom: 2%;
+}
 
-	.btn{
-		color: #fff;
-		background-color: #1BA61B;
-		border: none;
-		border-radius: 0px;
-	}
+.inputlapangan h2{
+	color: #1BA61B;
+}
 
-	.btn:hover,
-	.btn:active {
-		color: #fff;
-		background-color: #EBEB12;
-		font-weight: bold;
-	}
+.uploadlapangan{
+	margin-left: 5%;
+}
 
-	#simpan{
-		color: #fff;
-		background-color: #1BA61B;
-		border: none;
-		border-radius: 0px;
-		width: 10%;
-		align-items: center;
-	}
+#simpan{
+	color: #fff;
+	background-color: #1BA61B;
+	border: none;
+	border-radius: 0px;
+	width: 10%;
+	align-items: center;
+}
 
-	#batal{
-		color: #fff;
-		background-color: #1BA61B;
-		border: none;
-		border-radius: 0px;
-		width: 10%;
-		align-content: center;
-	}
+#batal{
+	color: #fff;
+	background-color: #1BA61B;
+	border: none;
+	border-radius: 0px;
+	width: 10%;
+	align-content: center;
+}
 
-	#simpan:hover,
-	#simpan:active {
-		color: #147D14;
-		background-color: #EBEB12;
-		font-weight: bold;
-	}
+#simpan:hover,
+#simpan:active {
+	color: #147D14;
+	background-color: #EBEB12;
+	font-weight: bold;
+}
 
-	#batal:hover,
-	#batal:active {
-		color: #147D14;
-		background-color: #EBEB12;
-		font-weight: bold;
-	}
-	.btn-default{
+#batal:hover,
+#batal:active {
+	color: #147D14;
+	background-color: #EBEB12;
+	font-weight: bold;
+}
 
-	}
+.btn-default{
 
-	input #btnupimg{
-		color: #fff;
-		background-color: #1BA61B;
-	}
+}
+
+input #btnupimg{
+	color: #fff;
+	background-color: #1BA61B;
+}
+
+#daftarlapangan table{
+	table-layout: auto;
+	text-align: center;
+	object-position: center;
+	table-layout: auto;
+	margin-left: 30%;
+}
+
+#daftarlapangan th{
+	background-color: #1BA61B;
+	table-layout: auto;
+	text-align: center;
+	object-position: center;
+	color: #fff;
+}
+
+.tombol{
+	margin-left: 17%;
+}

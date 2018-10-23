@@ -50,6 +50,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#" onclick="tampilkan_daftar();" class="btn register">Daftar</a></li>
 					<li><a href="#" onclick="tampilkan_masuk();" class="btn login">Masuk</a></li>
+					<li><a href="#">Pesanan</a></li>
 					<li><a href="#tentang">Tentang</a></li>
 					<li><a href="#kontak">Contact</a></li>
 
@@ -117,9 +118,13 @@
 					$('#datetimepicker1').datetimepicker();
 				});
 			</script>
-
-			<a class="btn btn-default" href="#" role="button">Pilih Tanggal</a>
+			<form action="BookingView.html" method="">
+				<div class="tombol-submit">
+			<button class="btn btn-default" id="tanggal" href="#" role="button">Pilih Tanggal</button>
 		</div>
+	</form>
+</div>
+
 
 		<section class="tentang" id="tentang">
 			<div container>
