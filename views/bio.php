@@ -8,11 +8,11 @@ if (isset($_POST['input'])) {
 	// membuat variabel untuk menampung data dari form
   $nama    = $_POST['nama'];
   $email   = $_POST['email'];
-  $nope    = $_POST['nope'];
-  $pass    = $_POST['pass'];
+  $no_hp   = $_POST['nope'];
+  $password = $_POST['pass'];
  
   // jalankan query INSERT untuk menambah data ke database
-  $query = "INSERT INTO biodata_pelanggan VALUES (NULL, '$nama', '$email', '$nope','$pass')";
+  $query = "INSERT INTO user VALUES (NULL, '$nama', '$email', $no_hp,'$password')";
   $result = mysqli_query($link, $query);
   // periska query apakah ada error
   if(!$result){
@@ -22,5 +22,5 @@ if (isset($_POST['input'])) {
 }
 
 // melakukan redirect (mengalihkan) ke halaman index.php
-header("location:index.php");
+header("location:HomeView.php");
 ?>

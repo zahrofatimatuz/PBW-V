@@ -67,69 +67,56 @@
 						<center><table class="table table-hover">
 							<thead>
 								<tr>
+									<th>no</th>
 									<th>Id Pesanan</th>
-									<th>Total</th>
-									<th>Status Pembayaran</th>
+									<th>Nama</th>
+									<th>Tanggal</th>
+									<th>Lapangan</th>
+									<th>Harga</th>
 									<th>Status Pesanan</th>									
 									<th></th>
 								</tr>
 							</thead>
-							<tbody>
-								<tr>
-									<td>162410100XX</td>
-									<td>Rp75.000,00</td>
-									<td>Belum Bayar</td>
-									<td>Menunggu Pembayaran</td>
-								</tr>
-								<tr>
-									<td>162410100XX</td>
-									<td>Rp75.000,00</td>
-									<td>Sudah Bayar</td>
-									<td>Tervefikasi</td>
-								</tr>
-								<tr>
-									<td>162410100XX</td>
-									<td>Rp75.000,00</td>
-									<td>Belum Bayar</td>
-									<td>Menunggu Pembayaran</td>
-								</tr>
-								<tr>
-									<td>162410100XX</td>
-									<td>Rp75.000,00</td>
-									<td>Sudah Bayar</td>
-									<td>Tervefikasi</td>
-								</tr>
-								<tr>
-									<td>162410100XX</td>
-									<td>Rp75.000,00</td>
-									<td>Belum Bayar</td>
-									<td>Menunggu Pembayaran</td>
-								</tr>
-								<tr>
-									<td>162410100XX</td>
-									<td>Rp75.000,00</td>
-									<td>Sudah Bayar</td>
-									<td>Tervefikasi</td>
-								</tr>
-								<tr>
-									<td>162410100XX</td>
-									<td>Rp75.000,00</td>
-									<td>Belum Bayar</td>
-									<td>Menunggu Pembayaran</td>
-								</tr>
-								<tr>
-									<td>162410100XX</td>
-									<td>Rp75.000,00</td>
-									<td>Belum Bayar</td>
-									<td>Menunggu Pembayaran</td>
-								</tr>
-							</tbody>
 
 						</table>
 						</center>
 					</div>
-
 				</div>
+				<?php
+      // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim ORDER BY nim ASC
+      $query = "SELECT id_user,nama,tanggal_pesanan,jumlah_jam,harga  FROM user JOIN pesanan ON id_use=id_user JOIN
+      			detail_pesanan ON id_pesanan=id_pesanan ";
+      $result = mysqli_query($link, $query);
+      //mengecek apakah ada error ketika menjalankan query
+      if(!$result){
+        die ("Query Error: ".mysqli_errno($link).
+           " - ".mysqli_error($link));
+      }
+
+      //buat perulangan untuk element tabel dari data mahasiswa
+      $no = 1; //variabel untuk membuat nomor urut
+      // hasil query akan disimpan dalam variabel $data dalam bentuk array
+      // kemudian dicetak dengan perulangan while
+      while($data = mysqli_fetch_assoc($result))
+      {
+        // mencetak / menampilkan data
+        echo "<tr>";
+        echo "<td><center>$no</td>"; //menampilkan no urut
+        echo "<td><center>$data[nama]</td>"; //menampilkan data nim
+        echo "<td><center>$data[nim]</td>"; //menampilkan data nama
+        echo "<td><center>$data[jurusan]</td>"; //menampilkan data fakultas
+        echo "<td><center>$data[angkatan]</td>"; //menampilkan data jurusan
+        echo "<td><center>$data[sie]</td>"; //menampilkan data ipk
+        // membuat link untuk mengedit dan menghapus data
+        echo '<td> <center>
+          <a href="edit.php?id='.$data['id'].'">Edit</a> /
+          <a href="hapus.php?id='.$data['id'].'"
+      		  onclick="return confirm(\'Anda yakin akan menghapus data?\')">Hapus</a>
+        </td>';
+        echo "</tr>";
+        $no++; // menambah nilai nomor urut
+      }
+      ?>
 				<div class="tombol">
 				<input type="submit" value="Tambah" id="simpan" class="btn simpan rounded-0">
 				<input type="submit" value="Ubah" id="batal" class="btn batal">

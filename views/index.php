@@ -221,7 +221,8 @@
 			<input type="password" name="pass" id="pass" class="inputtext single" placeholder="Password">
 			
 			<input type="checkbox" name="check" id="check"><label for="check">Saya Setuju dengan syarat dan ketentuan</label>
-			<input type="submit" name="input" value="Daftar" class="btn daftar"> 
+			<input type="submit" name="input" value="Daftar" class="btn daftar">
+			
 		</form>
 	</div>
 
