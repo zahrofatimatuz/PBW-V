@@ -1,0 +1,178 @@
+//////////  sections   /////////////
+// octostyles
+// base
+// pen
+////////////////////////////////////
+
+
+//////////////////// start octostyles
+@mixin animate {
+  transition: all .15s ease-in-out;
+}
+
+@mixin custom-scroll($bgcolor:default , $hover:false) {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgba(255,255,255,.05);
+    border-radius: 0 0 2px;
+  }
+
+  @if $hover == on-hover {
+    @include animate;
+    &:hover::-webkit-scrollbar-thumb {
+      border-radius: 2px;
+      background-color: rgba(0,0,0,.25);
+      margin-right: 2px;
+    }
+  } @else {
+    &::-webkit-scrollbar-thumb {
+      border-radius: 2px;
+      background-color: rgba(0,0,0,.25);
+      margin-right: 2px;
+    }
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+  }
+
+  &::-webkit-scrollbar-thumb:active {
+    background: rgba(0,0,0,0.4);
+  }
+}
+
+//////////////////// end octostyles
+
+//////////////////// start base
+
+//// colors
+$highlight-color: #b6e8cb;
+  $highlight-dark: darken($highlight-color, 20%);
+
+// $container-bg: #deebf7;
+$container-bg: #dadada;
+  $container-header-bg: darken($container-bg, 50%);
+$container-header-text: whitesmoke;
+
+$draggable-bg: slategrey;
+$draggable-text: whitesmoke;
+
+$mentor-header-bg: #44587d;
+$body-bg: white;
+
+//// layout
+.wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+}
+.wrap-liner {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  
+  background: $body-bg;
+}
+
+//////////////////// end base
+
+//////////////////// start pen
+
+.students, .mentors {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-basis: 0;
+  
+  &:not(:last-of-type) {
+    margin-right: 6rem;
+  }
+}
+
+.students-container, .mentor-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.students-header, .mentor-header {
+  background: $container-header-bg;
+  color: $container-header-text;
+  padding: 0.5rem;
+  
+  &.mentor-header {
+    background: $mentor-header-bg;
+  }
+}
+
+.students-wrap, .mentor-wrap {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  
+  background-color: $container-bg;
+}
+
+.students-liner, .mentor-liner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  flex-basis: 0;
+  padding: 0.5rem;
+  
+  @include animate;
+  @include custom-scroll;
+  overflow: auto;
+}
+
+.student {
+  background: $draggable-bg;
+  padding: 0.75rem;
+  color: $draggable-text;
+  cursor: move;
+  position: relative;
+  
+  &:not(:last-child) {
+    margin-bottom: 0.5rem; 
+  }
+}
+
+
+//// dragging styles
+.ui-draggable-dragging {
+  z-index: 999;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.droppable-highlight {
+  background: $highlight-color;
+  
+  &.drag-within {
+    background-color: $highlight-dark;
+  }
+}
+
+////styles the cloned ghost
+
+li.ui-draggable-dragging {
+  list-style: none;
+}
+
+//////////////////// end pen

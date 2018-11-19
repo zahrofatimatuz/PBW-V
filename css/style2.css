@@ -4,62 +4,101 @@
 /*======================Style=======================*/
 @import url('https://fonts.googleapis.com/css?family=Lato:400,600,900');
 *{
-font-family: 'Lato', sans-serif;
+	font-family: 'Poppins','Lato', sans-serif;
 }
 
-
 body{
-	font-family:'Open Sans', Arial, sans-serif;
+	font-family:'Poppins','Open Sans', Arial, sans-serif;
 	font-size:14px;
 	font-weight:300;
 	line-height:1.6em;
-	color:#656565;
 	margin-top: 100px;
+	background-color: #A3CFB5;
 }
 
+body{
+	background-color: #A3CFB5;
+}
+
+*h2{
+	color: #147D14;
+}
 
 .navbar{
 	padding-left: 2%;
-	padding: 1%;
 	border-radius: -1%;
 	box-sizing: border-box;
+	background-color: #fff;
 }
 
+.navbar a{
+	color: #1BA61B;
+}
+.navbar-default{
+	border: none;
+	border-radius: 0;
+}
 
+.navbar a:hover,
+.navbar a:active {
+	color: #147D14;
+	background-color: #fff;
+}
+
+.navbar-brand{
+	margin-top: -5%;
+}
 
 #input-group{
 	margin-top: 2%;
 }
 
 .popup {
-    display: none;
-    position: absolute;
-    padding: 30px;
-    width: 50%;
-    top: 100px;
-    left: 25%;
-    z-index: 2;
-    background: #fff;
-    border-radius: 5px;
+	display: none;
+	position: absolute;
+	padding: 30px;
+	width: 50%;
+	top: 100px;
+	left: 25%;
+	z-index: 2;
+	background: #fff;
+	border-radius: 5px;
 
 }
 
 .popup #close {
-    position: absolute;
-    right: -10px;
-    top: -10px;
-    padding: 5px 10px;
-    background: red;
-    text-align: center;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 50%;
+	position: absolute;
+	right: -10px;
+	top: -10px;
+	padding: 5px 10px;
+	background: red;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 50%;
 
 }
 
+#poplogin form{
+
+
+}
+
+
+#black {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	background: rgba(0, 0, 0, 0.8);
+}
+
 .viewtitle {
-    margin-bottom: 20px;
-    font-size: 21px
+	margin-bottom: 20px;
+	font-size: 21px
 }
 
 .tanggal {
@@ -76,24 +115,34 @@ body{
 
 }
 
+.container{
+	margin-top: 5%;
+	background-color: #fff;
+	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+
+}
+
 #datetimepicker1{
-width: 70%;
+	width: 70%;
 }
 
 
-.tanggal a{
-margin-top: -10%;
-width: 20%;
-border-image: 0%;
-background-image: linear-gradient(to right, #147D14 , #1BA61B );
-color: #1BA61B ;
-margin-left: 80%;
-color: #fff;
+#tanggal{
+	margin-top: -10%;
+	width: 20%;
+	border-image: 0%;
+	background-image: linear-gradient(to right, #147D14 , #1BA61B );
+	color: #1BA61B ;
+	margin-left: 80%;
+	color: #fff;
 }
 
-.tanggal a:hover,
-.tanggal a:active {
-    color: #A3CFB5
+#tanggal:hover,
+#tanggal:active {
+	color: #147D14;
+	background-color: #EBEB12;
+	background-image: linear-gradient(to right, #E6D815, #FFEE00);
+	font-weight: bold;
 }
 
 .tentang hr{
@@ -107,4 +156,87 @@ color: #fff;
 	width: 150px;
 	border-top: 4px solid #666;
 
+}
+
+input[type=file]{
+	padding:10px;
+}
+
+#upimg{
+	max-height: 180px;
+	max-width: 180px;
+}
+
+.inputlapangan .input-group{
+	width: 100%;
+	margin-bottom: 2%;
+}
+
+.inputlapangan h2{
+	color: #1BA61B;
+}
+
+.uploadlapangan{
+	margin-left: 5%;
+}
+
+#simpan{
+	color: #fff;
+	background-color: #1BA61B;
+	border: none;
+	border-radius: 0px;
+	width: 10%;
+	align-items: center;
+}
+
+#batal{
+	color: #fff;
+	background-color: #1BA61B;
+	border: none;
+	border-radius: 0px;
+	width: 10%;
+	align-content: center;
+}
+
+#simpan:hover,
+#simpan:active {
+	color: #147D14;
+	background-color: #EBEB12;
+	font-weight: bold;
+}
+
+#batal:hover,
+#batal:active {
+	color: #147D14;
+	background-color: #EBEB12;
+	font-weight: bold;
+}
+
+.btn-default{
+
+}
+
+input #btnupimg{
+	color: #fff;
+	background-color: #1BA61B;
+}
+
+#daftarlapangan table{
+	table-layout: auto;
+	text-align: center;
+	object-position: center;
+	table-layout: auto;
+	margin-left: 30%;
+}
+
+#daftarlapangan th{
+	background-color: #1BA61B;
+	table-layout: auto;
+	text-align: center;
+	object-position: center;
+	color: #fff;
+}
+
+.tombol{
+	margin-left: 17%;
 }

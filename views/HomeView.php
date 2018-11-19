@@ -54,6 +54,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#" onclick="tampilkan_daftar();" class="btn register">Daftar</a></li>
 					<li><a href="#" onclick="tampilkan_masuk();" class="btn login">Masuk</a></li>
+					<li><a class="nav-link js-scroll-trigger" href="#">Pesanan</a></li>
 					<li><a a class="nav-link js-scroll-trigger" href="#tentang">Tentang</a></li>
 					<li><a a class="nav-link js-scroll-trigger" href="#kontak">Contact</a></li>
 
