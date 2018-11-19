@@ -1,16 +1,26 @@
-<?php  
+<?php
+// memanggil file koneksi.php untuk melakukan koneksi database
 include 'koneksi.php';
-// menyimpan data kedalam variabel
-$nlengkap       = isset($_GET['Nama'])? $_GET['Nama']:'';
-$Email      	= isset($_GET['Email'])?$_GET['Email']:'';
-$nope			= isset($_GET['noHP'])? $_GET['noHP']:'';
-$pass           = isset($_GET['Password'])? $_GET['Password']:'';
-// query SQL untuk insert data
-echo 'SELAMAT DATANG'.$nlengkap.'email'.$Email.'no hp'.$nope.'Password'.$pass.;
 
-$query ="INSERT INTO bio SET Nama='$nlengkap',Email='$Email',noHP='$nope',Password='$pass'";
-mysqli_query($koneksi, $query);
-// mengalihkan ke halaman index.php
+// mengecek apakah tombol input dari form telah diklik
+if (isset($_POST['input'])) {
+
+	// membuat variabel untuk menampung data dari form
+  $nama    = $_POST['nama'];
+  $email   = $_POST['email'];
+  $nope    = $_POST['nope'];
+  $pass    = md5$_POST['pass'];
+ 
+  // jalankan query INSERT untuk menambah data ke database
+  $query = "INSERT INTO biodata_pelanggan VALUES (NULL, '$nama', '$email', '$nope','$pass')";
+  $result = mysqli_query($link, $query);
+  // periska query apakah ada error
+  if(!$result){
+      die ("Query gagal dijalankan: ".mysqli_errno($link).
+           " - ".mysqli_error($link));
+  }
+}
+
+// melakukan redirect (mengalihkan) ke halaman index.php
 header("location:index.php");
-
 ?>

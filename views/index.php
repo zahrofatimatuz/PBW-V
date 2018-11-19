@@ -55,7 +55,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#" onclick="tampilkan_daftar();" class="btn register">Daftar</a></li>
 					<li><a href="#" onclick="tampilkan_masuk();" class="btn login">Masuk</a></li>
-					<li><a class="nav-link js-scroll-trigger" href="#">Pesanan</a></li>
+					
 					<li><a a class="nav-link js-scroll-trigger" href="#tentang">Tentang</a></li>
 					<li><a a class="nav-link js-scroll-trigger" href="#kontak">Contact</a></li>
 
@@ -205,22 +205,23 @@
 		<form action="login">
 			<input type="text" name="username" class="inputtext single" placeholder="Username / Email">
 			<input type="password" name="password" class="inputtext single" placeholder="Password">
-			<input type="submit" value="MASUK" class="btn masuk"> 
+			<input type="submit" name="login" value="login" class="btn masuk"> <input type="reset" value="Reset" class="btn masuk">
 		</form>
+		<a href='biodata.php'>Register ?</a>
 	</div>
 
-	<form action="http://localhost/get/bio.php" method="GET">
+	<form id="form_mahasiswa" action="bio.php" method="post">
 	<div class="popup" id="popregister">
 		<a onclick="hilangkan_semua();" id="close">X</a>
 		<h3>Daftar</h3>
 		<form action="Daftar">
-			<input type="text" name="nlengkap" class="inputtext single" placeholder="Nama">
-			<input type="text" name="Email" class="inputtext single" placeholder="Email">
-			<input type="text" name="nope" class="inputtext single" placeholder="Nomer HP">
-			<input type="password" name="pass" class="inputtext single" placeholder="Password">
+			<input type="text" name="nama" id="nama" class="inputtext single" placeholder="Nama">
+			<input type="text" name="email" id="nama" class="inputtext single" placeholder="Email">
+			<input type="text" name="nope" id="nope" class="inputtext single" placeholder="Nomer HP">
+			<input type="password" name="pass" id="pass" class="inputtext single" placeholder="Password">
 			
 			<input type="checkbox" name="check" id="check"><label for="check">Saya Setuju dengan syarat dan ketentuan</label>
-			<input type="submit" value="Daftar" class="btn daftar"> 
+			<input type="submit" name="input" value="Daftar" class="btn daftar"> 
 		</form>
 	</div>
 

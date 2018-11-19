@@ -1,4 +1,3 @@
-<<?php  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,8 +31,7 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" onclick="tampilkan_daftar();" class="register">Daftar</a></li>
-          <li><a href="#" onclick="tampilkan_masuk();" class="login">Masuk</a></li>
+          <li><a href="#pesan">Beranda</a></li>
           <li><a href="#pesan">Pesanan</a></li>
           <li><a href="#tentang">Tentang</a></li>
           <li><a href="#kontak">Contact</a></li>
@@ -42,6 +40,45 @@
       </div>
     </div>
   </nav>
+  <br>
+  <br><div class="content">
+ <h1><center> MY ACCOUNT </center></h1>
+    
+    <table class="table table-condensed" >
+      <tr>
+        <th><center> no </th>
+        <th><center> Nama</th>
+        <th><center> Email </th>
+        <th><center> No HP </th>
+        <th><center> Password</th>
+      </tr>
+      <?php
+      include 'koneksi.php';
+      // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim ORDER BY nim ASC
+      $query = "SELECT * FROM biodata_pelanggan";
+      $result = mysqli_query($link, $query);
+      //mengecek apakah ada error ketika menjalankan query
+      if(!$result){
+        die ("Query Error: ".mysqli_errno($link).
+           " - ".mysqli_error($link));
+      }
 
+      //buat perulangan untuk element tabel dari data mahasiswa
+       $no = 1;//variabel untuk membuat nomor urut
+      // hasil query akan disimpan dalam variabel $data dalam bentuk array
+      // kemudian dicetak dengan perulangan while
+      while($data = mysqli_fetch_assoc($result))
+      {
+        // mencetak / menampilkan data
+        echo "<tr>";       
+        echo "<td><center>$no</td>";
+        echo "<td><center>$data[nama]</td>"; //menampilkan data nim
+        echo "<td><center>$data[email]</td>"; //menampilkan data nama
+        echo "<td><center>$data[nope]</td>"; //menampilkan data fakultas
+        echo "<td><center>$data[pass]</td>"; //menampilkan data jurusan
+        echo "</tr>";
+      }
+      ?>
+    </table>
 </body>
 </html>
