@@ -9,7 +9,7 @@ if (isset($_POST['input'])) {
   $nama    = $_POST['nama'];
   $email   = $_POST['email'];
   $nope    = $_POST['nope'];
-  $pass    = md5$_POST['pass'];
+  $pass    = $_POST['pass'];
  
   // jalankan query INSERT untuk menambah data ke database
   $query = "INSERT INTO biodata_pelanggan VALUES (NULL, '$nama', '$email', '$nope','$pass')";
