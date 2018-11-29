@@ -55,10 +55,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#" onclick="tampilkan_daftar();" class="btn register">Daftar</a></li>
 					<li><a href="#" onclick="tampilkan_masuk();" class="btn login">Masuk</a></li>
-<<<<<<< HEAD:views/index.php
 					
-=======
->>>>>>> master:views/HomeView.html
 					<li><a a class="nav-link js-scroll-trigger" href="#tentang">Tentang</a></li>
 					<li><a a class="nav-link js-scroll-trigger" href="#kontak">Contact</a></li>
 
@@ -135,11 +132,7 @@
 					$('#datetimepicker1').datetimepicker();
 				});
 			</script>
-<<<<<<< HEAD:views/index.php
 			<form action="BookingView.php" method="">
-=======
-			<form action="BookingView.html" method="">
->>>>>>> master:views/HomeView.html
 				<div class="tombol-submit">
 			<button class="btn btn-default" id="tanggal" href="#" role="button">Pilih Tanggal</button>
 		</div>
@@ -214,33 +207,21 @@
 			<input type="password" name="password" class="inputtext single" placeholder="Password">
 			<input type="submit" name="login" value="login" class="btn masuk"> <input type="reset" value="Reset" class="btn masuk">
 		</form>
-		<a href='UserController.php'>Register ?</a>
+		<a href='../controller/UserController.php'>Register ?</a>
 	</div>
 
-<<<<<<< HEAD:views/index.php
-	<form id="form_register" action="UserModel.php" method="post">
-=======
-	<form action="http://localhost/get/bio.php" method="GET">
->>>>>>> master:views/HomeView.html
+	<form id="form_mahasiswa" action="../model/UserModel.php" method="post">
 	<div class="popup" id="popregister">
 		<a onclick="hilangkan_semua();" id="close">X</a>
 		<h3>Daftar</h3>
 		<form action="Daftar">
-<<<<<<< HEAD:views/index.php
 			<input type="text" name="nama" id="nama" class="inputtext single" placeholder="Nama">
 			<input type="text" name="email" id="email" class="inputtext single" placeholder="Email">
 			<input type="text" name="no_hp" id="no_hp" class="inputtext single" placeholder="Nomer HP">
 			<input type="password" name="password" id="password" class="inputtext single" placeholder="Password">
-=======
-			<input type="text" name="nlengkap" class="inputtext single" placeholder="Nama">
-			<input type="text" name="Email" class="inputtext single" placeholder="Email">
-			<input type="text" name="nope" class="inputtext single" placeholder="Nomer HP">
-			<input type="password" name="pass" class="inputtext single" placeholder="Password">
->>>>>>> master:views/HomeView.html
 			
 			<input type="checkbox" name="check" id="check"><label for="check">Saya Setuju dengan syarat dan ketentuan</label>
-			<input type="submit" name="input" value="Daftar" class="btn daftar">
-			
+			<input type="submit" name="input" value="Daftar" class="btn daftar"> 
 		</form>
 	</div>
 
