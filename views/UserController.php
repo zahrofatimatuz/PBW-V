@@ -35,7 +35,6 @@
           <li><a href="#pesan">Pesanan</a></li>
           <li><a href="#tentang">Tentang</a></li>
           <li><a href="#kontak">Contact</a></li>
-
         </ul>
       </div>
     </div>
@@ -55,7 +54,7 @@
       <?php
       include 'koneksi.php';
       // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim ORDER BY nim ASC
-      $query = "SELECT * FROM biodata_pelanggan";
+      $query = "SELECT * FROM user";
       $result = mysqli_query($link, $query);
       //mengecek apakah ada error ketika menjalankan query
       if(!$result){
@@ -71,11 +70,10 @@
       {
         // mencetak / menampilkan data
         echo "<tr>";       
-        echo "<td><center>$no</td>";
-        echo "<td><center>$data[nama]</td>"; //menampilkan data nim
-        echo "<td><center>$data[email]</td>"; //menampilkan data nama
-        echo "<td><center>$data[nope]</td>"; //menampilkan data fakultas
-        echo "<td><center>$data[pass]</td>"; //menampilkan data jurusan
+        echo "<td><center>$data[nama]</td>"; //menampilkan data nama
+        echo "<td><center>$data[email]</td>"; //menampilkan data email
+        echo "<td><center>$data[no_hp]</td>"; //menampilkan data 
+        echo "<td><center>$data[Password]</td>"; //menampilkan 
         echo "</tr>";
       }
       ?>

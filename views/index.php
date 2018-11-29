@@ -203,22 +203,22 @@
 		<a onclick="hilangkan_semua();" id="close">X</a>
 		<h3>Masuk</h3>
 		<form action="login">
-			<input type="text" name="username" class="inputtext single" placeholder="Username / Email">
+			<input type="text" name="nama" class="inputtext single" placeholder="Username / Email">
 			<input type="password" name="password" class="inputtext single" placeholder="Password">
 			<input type="submit" name="login" value="login" class="btn masuk"> <input type="reset" value="Reset" class="btn masuk">
 		</form>
-		<a href='biodata.php'>Register ?</a>
+		<a href='UserController.php'>Register ?</a>
 	</div>
 
-	<form id="form_mahasiswa" action="bio.php" method="post">
+	<form id="form_register" action="UserModel.php" method="post">
 	<div class="popup" id="popregister">
 		<a onclick="hilangkan_semua();" id="close">X</a>
 		<h3>Daftar</h3>
 		<form action="Daftar">
 			<input type="text" name="nama" id="nama" class="inputtext single" placeholder="Nama">
-			<input type="text" name="email" id="nama" class="inputtext single" placeholder="Email">
-			<input type="text" name="nope" id="nope" class="inputtext single" placeholder="Nomer HP">
-			<input type="password" name="pass" id="pass" class="inputtext single" placeholder="Password">
+			<input type="text" name="email" id="email" class="inputtext single" placeholder="Email">
+			<input type="text" name="no_hp" id="no_hp" class="inputtext single" placeholder="Nomer HP">
+			<input type="password" name="password" id="password" class="inputtext single" placeholder="Password">
 			
 			<input type="checkbox" name="check" id="check"><label for="check">Saya Setuju dengan syarat dan ketentuan</label>
 			<input type="submit" name="input" value="Daftar" class="btn daftar"> 
