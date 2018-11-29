@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2018 at 03:37 PM
+-- Generation Time: Nov 29, 2018 at 07:22 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -71,7 +71,7 @@ CREATE TABLE `user` (
   `level` int(11) NOT NULL,
   `email` varchar(32) NOT NULL,
   `no_hp` int(11) NOT NULL,
-  `password` varchar(32) NOT NULL
+  `pass` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -113,6 +113,18 @@ ALTER TABLE `user`
 --
 ALTER TABLE `lapangan`
   MODIFY `id_lapangan` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pesanan`
+--
+ALTER TABLE `pesanan`
+  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
