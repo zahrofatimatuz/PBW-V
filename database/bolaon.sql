@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2018 at 07:22 AM
+-- Generation Time: Nov 30, 2018 at 07:22 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -31,10 +31,42 @@ SET time_zone = "+00:00";
 CREATE TABLE `detail_pesanan` (
   `id_pesanan` int(11) NOT NULL,
   `id_lapangan` int(11) NOT NULL,
+  `id_jadwal` int(11) NOT NULL,
   `jumlah_jam` int(11) NOT NULL,
   `harga` int(11) NOT NULL,
   `bukti_pembayaran` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jadwal`
+--
+
+CREATE TABLE `jadwal` (
+  `id_jadwal` int(11) NOT NULL,
+  `jadwal` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jadwal`
+--
+
+INSERT INTO `jadwal` (`id_jadwal`, `jadwal`) VALUES
+(1, '09:00:00'),
+(2, '10:00:00'),
+(3, '11:00:00'),
+(4, '12:00:00'),
+(5, '13:00:00'),
+(6, '14:00:00'),
+(7, '15:00:00'),
+(8, '16:00:00'),
+(9, '17:00:00'),
+(10, '18:00:00'),
+(11, '19:00:00'),
+(12, '20:00:00'),
+(13, '21:00:00'),
+(14, '22:00:00');
 
 -- --------------------------------------------------------
 
@@ -44,8 +76,20 @@ CREATE TABLE `detail_pesanan` (
 
 CREATE TABLE `lapangan` (
   `id_lapangan` int(11) NOT NULL,
-  `nama_lapangan` varchar(32) NOT NULL
+  `nama_lapangan` varchar(32) NOT NULL,
+  `id_jadwal` int(11) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `ukuran` varchar(32) NOT NULL,
+  `keterangan` enum('Bisa','Rusak','','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lapangan`
+--
+
+INSERT INTO `lapangan` (`id_lapangan`, `nama_lapangan`, `id_jadwal`, `harga`, `ukuran`, `keterangan`) VALUES
+(1, 'Lapangan 1', 1, 50000, '15 x 10', 'Bisa'),
+(2, 'Lapangan 2', 2, 70000, '20 x 10', 'Rusak');
 
 -- --------------------------------------------------------
 
@@ -83,13 +127,21 @@ CREATE TABLE `user` (
 --
 ALTER TABLE `detail_pesanan`
   ADD KEY `id_pesanan` (`id_pesanan`),
-  ADD KEY `id_lapangan` (`id_lapangan`);
+  ADD KEY `id_lapangan` (`id_lapangan`),
+  ADD KEY `id_jadwal` (`id_jadwal`);
+
+--
+-- Indexes for table `jadwal`
+--
+ALTER TABLE `jadwal`
+  ADD PRIMARY KEY (`id_jadwal`);
 
 --
 -- Indexes for table `lapangan`
 --
 ALTER TABLE `lapangan`
-  ADD PRIMARY KEY (`id_lapangan`);
+  ADD PRIMARY KEY (`id_lapangan`),
+  ADD UNIQUE KEY `id_jadwal` (`id_jadwal`);
 
 --
 -- Indexes for table `pesanan`
@@ -109,10 +161,16 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `jadwal`
+--
+ALTER TABLE `jadwal`
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- AUTO_INCREMENT for table `lapangan`
 --
 ALTER TABLE `lapangan`
-  MODIFY `id_lapangan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_lapangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pesanan`
@@ -135,7 +193,14 @@ ALTER TABLE `user`
 --
 ALTER TABLE `detail_pesanan`
   ADD CONSTRAINT `detail_pesanan_ibfk_1` FOREIGN KEY (`id_pesanan`) REFERENCES `pesanan` (`id_pesanan`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `detail_pesanan_ibfk_2` FOREIGN KEY (`id_lapangan`) REFERENCES `lapangan` (`id_lapangan`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `detail_pesanan_ibfk_2` FOREIGN KEY (`id_lapangan`) REFERENCES `lapangan` (`id_lapangan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detail_pesanan_ibfk_3` FOREIGN KEY (`id_jadwal`) REFERENCES `jadwal` (`id_jadwal`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `lapangan`
+--
+ALTER TABLE `lapangan`
+  ADD CONSTRAINT `lapangan_ibfk_1` FOREIGN KEY (`id_jadwal`) REFERENCES `jadwal` (`id_jadwal`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pesanan`
