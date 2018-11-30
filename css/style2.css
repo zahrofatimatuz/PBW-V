@@ -158,6 +158,13 @@ body{
 
 }
 
+footer .footerisi .bagi.slice6 {
+    background: #eee;
+    padding-bottom: 50px;
+    border: 2px solid #DBDBDB;
+}
+
+
 input[type=file]{
 	padding:10px;
 }
