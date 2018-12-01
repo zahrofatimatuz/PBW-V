@@ -1,5 +1,5 @@
 <?php  
-include ".../koneksi.php";
+include "../koneksi.php";
 $query = "SELECT * FROM lapangan";
 $res = mysqli_query($link, $query);
 ?>
@@ -53,13 +53,11 @@ $res = mysqli_query($link, $query);
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#lapangan">Lapangan</a></li>
-					<li><a href="#pesanan">Pesanan</a></li>
-
+					<li><a href="#lapangan">Account</a></li>
 				</ul>
 			</div>
-		</div>
-	</nav>
+        </div>
+    </nav>
 
 	<section>
 		<div class="container">
@@ -75,6 +73,8 @@ $res = mysqli_query($link, $query);
 									<th>Ukuran</th>
 									<th>Harga</th>
 									<th>Keterangan</th>
+                                    <th>Gambar</th>
+                                    <th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -86,6 +86,11 @@ $res = mysqli_query($link, $query);
 									<td><?php echo $row['ukuran']?></td>
 									<td><?php echo $row['harga']?></td>
 									<td><?php echo $row['keterangan'] ?></td>
+                                    <td><?php echo $row['gambar'] ?></td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary">Edit</a>
+                                        <a href="proses/proseshapuslapangan.php?id=<?php echo $row['id_lapangan'] ?>" class="btn btn-danger">Hapus</a>
+                                    </td>
 								</tr>
 								<?php
 									}
@@ -101,8 +106,6 @@ $res = mysqli_query($link, $query);
 			<div class="tombol">
 				<form action="CreateUpdateYardView.html" method="">
 					<input type="submit" value="Tambah" id="simpan" class="btn simpan rounded-0">
-					<input type="submit" value="Ubah" id="batal" class="btn batal">
-					<input type="submit" value="Hapus" id="simpan" class="btn simpan rounded-0">
 				</form>
 			</div>
 		</div>
@@ -110,6 +113,7 @@ $res = mysqli_query($link, $query);
 	<br>
 	<br>
 </div>
+
 
 </section>
 
