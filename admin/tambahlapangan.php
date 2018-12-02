@@ -2,7 +2,7 @@
 <html lang="en" id="home">
 
 <head>
-    <title>BolaOn : Create Update Lapangan</title>
+    <title>BolaOn : Tambah Lapangan</title>
     <link rel="../img/logosquare.png" href="img/logosquare.png">
 
     <meta charset="utf-8">
@@ -129,7 +129,7 @@
                     </div>
 
                 </div>
-                <input type="submit" value="Simpan" id="simpan" class="btn simpan rounded-0">
+                <input href="proses/prosestambahlapangan.php?id=<?php echo $row['id_lapangan'] ?>" type="submit" value="Simpan" id="simpan" class="btn simpan rounded-0">
                 <input type="submit" value="Batal" id="batal" class="btn batal">
             </div>
         </form>

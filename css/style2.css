@@ -227,6 +227,17 @@ input[type=file]{
 .btn-default{
 
 }
+.editlapangan .input-group{
+	width: 100%;
+	margin-bottom: 2%;
+}
+
+.editlapangan h2{
+	color: #1BA61B;
+}
+*h2{
+	text-align: center;
+}
 
 input #btnupimg{
 	color: #fff;

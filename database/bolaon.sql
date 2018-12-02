@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2018 at 07:22 AM
+-- Generation Time: Dec 02, 2018 at 06:10 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -77,19 +77,20 @@ INSERT INTO `jadwal` (`id_jadwal`, `jadwal`) VALUES
 CREATE TABLE `lapangan` (
   `id_lapangan` int(11) NOT NULL,
   `nama_lapangan` varchar(32) NOT NULL,
-  `id_jadwal` int(11) NOT NULL,
   `harga` int(11) NOT NULL,
   `ukuran` varchar(32) NOT NULL,
-  `keterangan` enum('Bisa','Rusak','','') NOT NULL
+  `keterangan` enum('Bisa','Rusak','','') NOT NULL,
+  `gambar` varchar(64) NOT NULL,
+  `deskripsi` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `lapangan`
 --
 
-INSERT INTO `lapangan` (`id_lapangan`, `nama_lapangan`, `id_jadwal`, `harga`, `ukuran`, `keterangan`) VALUES
-(1, 'Lapangan 1', 1, 50000, '15 x 10', 'Bisa'),
-(2, 'Lapangan 2', 2, 70000, '20 x 10', 'Rusak');
+INSERT INTO `lapangan` (`id_lapangan`, `nama_lapangan`, `harga`, `ukuran`, `keterangan`, `gambar`, `deskripsi`) VALUES
+(2, 'Lapangan 2', 70000, '20 x 10', 'Rusak', 'Lap 2', 'Lapangan ini bagus'),
+(3, 'Lapangan 3', 50000, '20 X 15', 'Bisa', 'Lap 3', 'Lapangan ini bagus');
 
 -- --------------------------------------------------------
 
@@ -140,8 +141,7 @@ ALTER TABLE `jadwal`
 -- Indexes for table `lapangan`
 --
 ALTER TABLE `lapangan`
-  ADD PRIMARY KEY (`id_lapangan`),
-  ADD UNIQUE KEY `id_jadwal` (`id_jadwal`);
+  ADD PRIMARY KEY (`id_lapangan`);
 
 --
 -- Indexes for table `pesanan`
@@ -170,7 +170,7 @@ ALTER TABLE `jadwal`
 -- AUTO_INCREMENT for table `lapangan`
 --
 ALTER TABLE `lapangan`
-  MODIFY `id_lapangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_lapangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pesanan`
@@ -195,12 +195,6 @@ ALTER TABLE `detail_pesanan`
   ADD CONSTRAINT `detail_pesanan_ibfk_1` FOREIGN KEY (`id_pesanan`) REFERENCES `pesanan` (`id_pesanan`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `detail_pesanan_ibfk_2` FOREIGN KEY (`id_lapangan`) REFERENCES `lapangan` (`id_lapangan`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `detail_pesanan_ibfk_3` FOREIGN KEY (`id_jadwal`) REFERENCES `jadwal` (`id_jadwal`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `lapangan`
---
-ALTER TABLE `lapangan`
-  ADD CONSTRAINT `lapangan_ibfk_1` FOREIGN KEY (`id_jadwal`) REFERENCES `jadwal` (`id_jadwal`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pesanan`
