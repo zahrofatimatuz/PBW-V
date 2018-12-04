@@ -225,7 +225,11 @@
 	<div class="popup" id="poplogin">
 		<a onclick="hilangkan_semua();" id="close">X</a>
 		<h3>Masuk</h3>
-		<form action="login">
+		<form action="login" action="ceklogin.php">
+			<tr><?php if(isset($_SESSION['error'])){?>
+ <td colspan="3"><div class="alert alert-error"><a class="close" data-dismiss="alert" href="#">x</a>
+ <?php echo $_SESSION['error']; unset($_SESSION['error']);}?></td>
+ </tr>
 			<input type="text" name="nama" class="inputtext single" placeholder="Username / Email">
 			<input type="password" name="pass" class="inputtext single" placeholder="Password">
 			<input type="submit" name="login" value="login" class="btn masuk"> <input type="reset" value="Reset" class="btn masuk">
@@ -233,7 +237,7 @@
 		<a href='User.php'>Register ?</a>
 	</div>
 
-	<form id="form_register" action="DataUser.php" method="post">
+	<form id="form_register" action="c_login.php" method="post">
 		<div class="popup" id="popregister">
 			<a onclick="hilangkan_semua();" id="close">X</a>
 			<h3>Daftar</h3>

@@ -11,15 +11,19 @@ if (isset($_POST['input'])) {
   $no_hp    = $_POST['no_hp'];
   $password    = $_POST['pass'];
   
+
+  $level = 'member'; // default, 
   // jalankan query INSERT untuk menambah data ke database
-  $query = "INSERT INTO user VALUES (NULL, '$nama', '$email', '$no_hp','$pass')";
+  $query = "INSERT INTO user VALUES (NULL, '$nama', '$email', '$no_hp','$pass', '$level')";
   $result = mysqli_query($link, $query);
   // periska query apakah ada error
-  if(!$result)
-  {
+  if(!$result) {
     die ("Query gagal dijalankan: ".mysqli_errno($link).
      " - ".mysqli_error($link));
-  }
+    
+  } else {
+        echo "<script>alert('Insert Data Berhasil'); window.location.href = './user/Home.php';</script>";
+
 }
 
 // melakukan redirect (mengalihkan) ke halaman index.php

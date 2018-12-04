@@ -53,8 +53,8 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a class="nav-link js-scroll-trigger" href="#">Hai </a></li>
-					<li><a class="nav-link js-scroll-trigger" href="DaftarPesananUserView">Pesanan</a></li>
-					<li><a a class="nav-link js-scroll-trigger" href="PayView.php">Pembayaran</a></li>
+					<li><a class="nav-link js-scroll-trigger" href="booking.php">Pesanan</a></li>
+					<li><a a class="nav-link js-scroll-trigger" href="bayar.php">Pembayaran</a></li>
 					<li><a a class="nav-link js-scroll-trigger" href="index.php ?>">Keluar</a></li>
 
 				</ul>

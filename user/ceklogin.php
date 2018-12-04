@@ -24,6 +24,27 @@ $result = mysqli_query($link, $query);
     $stmt->execute($params);
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
+// Pengecekan kondisi username dan password
+if(isset($_POST['username']) && ($_POST['password'])){
+
+   // Variabel untuk menyimpan data username dan password yang dikirim dari form
+   $username = $_POST['nama'];
+   $password = $_POST['pass'];
+
+   //function php untuk mengambil data dari database
+   $sql = mysql_query("select * from biodata_pelanggan where nama='$nama' and pass='$pass'")or die ("SQL Error:".mysql_error());;
+   $result = mysql_num_rows($sql);
+   $data = mysql_fetch_array($sql);
+
+   // Untuk menyimpan session login
+
+   if ($result== 1){
+
+       $_SESSION['nama'] = $data['nama'];
+       $_SESSION['level'] = $data['level'];
+       header("location:index.php");
+
+   }else{
 
 if($nama){
         // verifikasi password
@@ -35,6 +56,12 @@ if($nama){
             header("Location: biodata.php");
         }
     }
+    if ($result== 1){
+
+       $_SESSION['nama'] = $data['nama'];
+       $_SESSION['level'] = $data['level'];
+       header("location:index.php");
+}
 }
 
 ?>
