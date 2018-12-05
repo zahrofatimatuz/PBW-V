@@ -46,7 +46,7 @@
 				</button>
 
 				<a class="navbar-brand" href="#home">
-					<img alt="Brand" src="img/logo.png">
+					<img alt="Brand" src="../img/logo.png">
 				</a>
 			</div>
 
@@ -54,8 +54,8 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a class="nav-link js-scroll-trigger" href="#">Hai  </a></li>
 					<li><a class="nav-link js-scroll-trigger" href="booking.php">Pesanan</a></li>
-					<li><a a class="nav-link js-scroll-trigger" href="bayar.php">Pembayaran</a></li>
-					<li><a a class="nav-link js-scroll-trigger" href="index.php ?>">Keluar</a></li>
+					<li><a  class="nav-link js-scroll-trigger" href="bayar.php">Pembayaran</a></li>
+					<li><a  class="nav-link js-scroll-trigger" href="../index.php">Keluar</a></li>
 
 				</ul>
 			</div>

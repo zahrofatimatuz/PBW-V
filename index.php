@@ -11,7 +11,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- css -->
-	<link href="css/style2.css" rel="stylesheet">
+	<link href="./css/style2.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap-datepicker.min.css">
 
 	<!-- Bootstrap -->
@@ -225,17 +225,27 @@
 	<div class="popup" id="poplogin">
 		<a onclick="hilangkan_semua();" id="close">X</a>
 		<h3>Masuk</h3>
-		<form action="login" action="cekregis.php">
-			<tr><?php if(isset($_SESSION['error'])){?>
- <td colspan="3"><div class="alert alert-error"><a class="close" data-dismiss="alert" href="#">x</a>
- <?php echo $_SESSION['error']; unset($_SESSION['error']);}?></td>
- </tr>
+		<form action="login" action="ceklogin.php"onsubmit="return valid_input(this)">
 			<input type="text" name="nama" class="inputtext single" placeholder="Username / Email">
 			<input type="password" name="pass" class="inputtext single" placeholder="Password">
 			<input type="submit" name="login" value="login" class="btn masuk"> <input type="reset" value="Reset" class="btn masuk">
 		</form>
 		<a href='User.php'>Register ?</a>
 	</div>
+<script type="text/javascript">
+    function valid_input(form){
+if (form.nama.value == "" ){
+    alert("nama masih kosong!");
+   form.nama.focus();
+   }
+if (form.pass.value == ""){
+    alert("password masih kosong!");
+    form.pass.focus();
+    }
+    return (true);
+
+}
+</script>
 
 	<form id="form_register" action="cekregis.php" method="post" onsubmit="return validasi_input(this)">
 		<div class="popup" id="popregister">
