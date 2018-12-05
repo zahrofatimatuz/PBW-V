@@ -12,7 +12,7 @@
 
 	<!-- css -->
 	<link href="css/style2.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap-datepicker.min.css">
 
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="./js/bootstrap-datepicker.js"></script>
 
 	<!-- Font Online -->
 
@@ -225,7 +225,7 @@
 	<div class="popup" id="poplogin">
 		<a onclick="hilangkan_semua();" id="close">X</a>
 		<h3>Masuk</h3>
-		<form action="login" action="ceklogin.php">
+		<form action="login" action="cekregis.php">
 			<tr><?php if(isset($_SESSION['error'])){?>
  <td colspan="3"><div class="alert alert-error"><a class="close" data-dismiss="alert" href="#">x</a>
  <?php echo $_SESSION['error']; unset($_SESSION['error']);}?></td>
@@ -237,7 +237,7 @@
 		<a href='User.php'>Register ?</a>
 	</div>
 
-	<form id="form_register" action="c_login.php" method="post">
+	<form id="form_register" action="cekregis.php" method="post" onsubmit="return validasi_input(this)">
 		<div class="popup" id="popregister">
 			<a onclick="hilangkan_semua();" id="close">X</a>
 			<h3>Daftar</h3>
@@ -252,6 +252,33 @@
             </form>
 		</div>
     </form>
+
+<script type="text/javascript">
+    function validasi_input(form){
+if (form.nama.value == "" ){
+    alert("nama masih kosong!");
+   form.nama.focus();
+   }
+if (form.email.value == ""){
+    alert("email masih kosong!");
+    form.email.focus();
+    }
+if (form.no_hp.value == ""){
+    alert("no_hp masih kosong!");
+    form.no_hp.focus();
+  	}
+if (form.pass.value == ""){
+    alert("no_hp masih kosong!");
+    form.pass.focus();
+  	}
+	return (true);
+
+}
+</script>
+
+<script type="text/javascript">
+
+</script>
 
 		<!-- Bootstrap core JavaScript -->
 		<script src="js/jquery/jquery.min.js"></script>

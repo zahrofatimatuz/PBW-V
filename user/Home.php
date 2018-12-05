@@ -3,24 +3,24 @@
 
 <head>
 	<title>BolaOn : Booking Lapangan Online</title>
-	<link rel="img/logosquare.png" href="img/logosquare.png">
+	<link rel="../img/logosquare.png" href="../img/logosquare.png">
 
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- css -->
-	<link href="css/style2.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.min.css">
+	<link href="../css/style2.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap-datepicker.min.css">
 
 	<!-- Bootstrap -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- Bootstrap Online-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="../js/bootstrap-datepicker.js"></script>
 
 	<!-- Font Online -->
 
@@ -52,7 +52,7 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a class="nav-link js-scroll-trigger" href="#">Hai </a></li>
+					<li><a class="nav-link js-scroll-trigger" href="#">Hai  </a></li>
 					<li><a class="nav-link js-scroll-trigger" href="booking.php">Pesanan</a></li>
 					<li><a a class="nav-link js-scroll-trigger" href="bayar.php">Pembayaran</a></li>
 					<li><a a class="nav-link js-scroll-trigger" href="index.php ?>">Keluar</a></li>
@@ -76,15 +76,15 @@
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner">
 			<div class="item active">
-				<img src="img/slides/img1.png" alt="img-responsive">
+				<img src="../img/slides/img1.png" alt="img-responsive">
 			</div>
 
 			<div class="item">
-				<img src="img/slides/img2.png" alt="img-responsive">
+				<img src="../img/slides/img2.png" alt="img-responsive">
 			</div>
 
 			<div class="item">
-				<img src="img/slides/img3.png" alt="img-responsive">
+				<img src="../img/slides/img3.png" alt="img-responsive">
 			</div>
 		</div>
 
@@ -166,7 +166,7 @@
 
 					<div class="col-md-6">
 						<a href="#thumbnail" class="thumbnail">
-							<img src="img/slides/img2.png" alt="...">
+							<img src="../img/slides/img2.png" alt="...">
 						</a>
 
 					</div>
