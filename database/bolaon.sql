@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2018 at 06:10 AM
+-- Generation Time: Dec 07, 2018 at 06:50 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -81,7 +81,7 @@ CREATE TABLE `lapangan` (
   `ukuran` varchar(32) NOT NULL,
   `keterangan` enum('Bisa','Rusak','','') NOT NULL,
   `gambar` varchar(64) NOT NULL,
-  `deskripsi` varchar(200) NOT NULL
+  `deskripsi` varchar(360) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -89,8 +89,11 @@ CREATE TABLE `lapangan` (
 --
 
 INSERT INTO `lapangan` (`id_lapangan`, `nama_lapangan`, `harga`, `ukuran`, `keterangan`, `gambar`, `deskripsi`) VALUES
-(2, 'Lapangan 2', 70000, '20 x 10', 'Rusak', 'Lap 2', 'Lapangan ini bagus'),
-(3, 'Lapangan 3', 50000, '20 X 15', 'Bisa', 'Lap 3', 'Lapangan ini bagus');
+(6, 'Lapangan 1', 5000, '1 x 1', 'Bisa', '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,'),
+(7, 'Lapangan 2', 75000, '10 x 10', 'Bisa', '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,'),
+(8, 'Lapangan 3', 90000, '20 x 20', 'Bisa', '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,'),
+(9, 'Lapangan 4', 70000, '12 x 12', 'Bisa', '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,'),
+(10, 'Lapangan 5', 50000, '1 x 1', 'Bisa', '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,');
 
 -- --------------------------------------------------------
 
@@ -113,11 +116,21 @@ CREATE TABLE `pesanan` (
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `nama` varchar(32) NOT NULL,
-  `level` int(11) NOT NULL,
   `email` varchar(32) NOT NULL,
   `no_hp` int(11) NOT NULL,
-  `pass` varchar(32) NOT NULL
+  `pass` varchar(32) NOT NULL,
+  `level` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_user`, `nama`, `email`, `no_hp`, `pass`, `level`) VALUES
+(1, 'faza', 'fazahoy@gmail.com', 89, 'd8578edf8458ce06fbc5bb76a58c5ca4', '0'),
+(2, 'saya', 'saya@gmail.com', 85, '20c1a26a55039b30866c9d0aa51953ca', '0'),
+(3, 'admin', 'admin@gmail.com', 526263, 'admin', 'admin'),
+(4, 'Nanas', 'nanas@gmail.com', 89, 'a869c600c9fc943e1b79dd9594a02e76', 'member');
 
 --
 -- Indexes for dumped tables
@@ -170,7 +183,7 @@ ALTER TABLE `jadwal`
 -- AUTO_INCREMENT for table `lapangan`
 --
 ALTER TABLE `lapangan`
-  MODIFY `id_lapangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_lapangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `pesanan`
@@ -182,7 +195,7 @@ ALTER TABLE `pesanan`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

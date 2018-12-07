@@ -36,7 +36,7 @@ if (isset($_POST['input'])) {
      " - ".mysqli_error($link));
     
   } else {
-        echo "<script>alert('Insert Data Berhasil'); window.location.href = './user/Home.php';</script>";
+        echo "<script>alert('Insert Data Berhasil'); window.location.href = 'index.php';</script>";
 
 } 
 } 
