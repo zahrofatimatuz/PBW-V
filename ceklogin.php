@@ -1,6 +1,6 @@
 <?php 
 
-session_start();
+
 include 'koneksi.php';
 
 
@@ -10,8 +10,8 @@ $pass=$_POST['pass'];
 
 
    //function php untuk mengambil data dari database
-   $query = mysqli_quer($link,"select * from user where nama='$nama' and pass='$pass'";
-   $result = mysql_num_rows($link, $query);
+   $query = mysqli_query ($link,"select * from user where nama='$nama' and pass='$pass'");
+   $result = mysqli_num_rows($query);
    
    // Untuk menyimpan session login
 
@@ -27,7 +27,7 @@ if($result > 0){
     $_SESSION['nama'] = $nama;
     $_SESSION['level'] = "admin";
     // alihkan ke halaman dashboard admin
-    echo "<script>alert('anda berhasil masuk'); window.location.href = './user/Home.php';</script>";
+    echo "<script>alert('anda berhasil masuk'); window.location.href = 'user/Home.php';</script>";
     
  
   // cek jika user login sebagai member
@@ -36,7 +36,7 @@ if($result > 0){
     $_SESSION['nama'] = $nama;
     $_SESSION['level'] = "member";
     // alihkan ke halaman dashboard member
-    echo "<script>alert('anda berhasil masuk'); window.location.href = './user/booking.php';</script>";
+    echo "<script>alert('anda berhasil masuk'); window.location.href = 'user/booking.php';</script>";
     
  
   // cek jika user login sebagai pengurus

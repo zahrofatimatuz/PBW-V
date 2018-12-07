@@ -79,9 +79,9 @@
                         <div class="input-group">
                             <input type="text" name="panjang" class="form-control" placeholder="Panjang"
                                    aria-describedby="basic-addon2"><span class="input-group-addon"
-                                                                         id="basic-addon2">x</span>
+                                                                         id="basic-addon2">X</span>
                             <input type="text" name="lebar" class="form-control" placeholder="Lebar" aria-describedby="basic-addon2">
-                            <span class="input-group-addon" id="basic-addon2">cm</span>
+                            <span class="input-group-addon" id="basic-addon2">Meter</span>
                         </div>
 
                         <div class="input-group">
