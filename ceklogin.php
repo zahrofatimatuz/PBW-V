@@ -1,9 +1,8 @@
 <?php 
-// mengaktifkan session pada php
-session_start();
 
-include '../koneksi.php';
-if (isset($_POST['login'])) {
+session_start();
+include 'koneksi.php';
+
 
 //mengambil data dari form login
 $nama=$_POST['nama'];
@@ -11,32 +10,34 @@ $pass=$_POST['pass'];
 
 
    //function php untuk mengambil data dari database
-   $sql = mysql_query("select * from user where nama='$nama' and pass='$pass'")or die ("SQL Error:".mysql_error());;
-   $result = mysql_num_rows($sql);
+   $query = mysqli_quer($link,"select * from user where nama='$nama' and pass='$pass'";
+   $result = mysql_num_rows($link, $query);
    
    // Untuk menyimpan session login
 
 // cek apakah username dan password di temukan pada database
 if($result > 0){
  
-  $data = mysqli_fetch_assoc($sql);
+  $data = mysqli_fetch_assoc($query);
  
   // cek jika user login sebagai admin
-  if($result['level']=="admin"){
+  if($data['level']=="admin"){
  
     // buat session login dan username
     $_SESSION['nama'] = $nama;
     $_SESSION['level'] = "admin";
     // alihkan ke halaman dashboard admin
-    header("location:Home.php");
+    echo "<script>alert('anda berhasil masuk'); window.location.href = './user/Home.php';</script>";
+    
  
   // cek jika user login sebagai member
-  }else if($data['level']=="member"){
+  }else if($data['level']=="nama"){
     // buat session login dan username
     $_SESSION['nama'] = $nama;
     $_SESSION['level'] = "member";
     // alihkan ke halaman dashboard member
-    header("location:booking.php");
+    echo "<script>alert('anda berhasil masuk'); window.location.href = './user/booking.php';</script>";
+    
  
   // cek jika user login sebagai pengurus
   }else{
@@ -45,6 +46,6 @@ if($result > 0){
     header("location:index.php?pesan=gagal");
   } 
 }
-}
+
 
 ?>

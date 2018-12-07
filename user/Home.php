@@ -52,7 +52,7 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a class="nav-link js-scroll-trigger" href="#">Hai  </a></li>
+					<li><a class="nav-link js-scroll-trigger" href="#">Hai</a></li> 
 					<li><a class="nav-link js-scroll-trigger" href="booking.php">Pesanan</a></li>
 					<li><a  class="nav-link js-scroll-trigger" href="bayar.php">Pembayaran</a></li>
 					<li><a  class="nav-link js-scroll-trigger" href="../index.php">Keluar</a></li>
@@ -121,6 +121,7 @@
       format: 'dd-mm-yyyy',
       autoclose: true,
       todayHighlight: true,
+       
   });
  });
 </script>
@@ -136,8 +137,7 @@
 		</div>
 	</form>
 </div>
-
-
+<input type="text" id="datepicker"/>
 		<section class="tentang" id="tentang">
 			<div container>
 				<div class="row">
@@ -196,32 +196,8 @@
 
 	</footer>
 
-	<div id="black"></div>
-	<div class="popup" id="poplogin">
-		<a onclick="hilangkan_semua();" id="close">X</a>
-		<h3>Masuk</h3>
-		<form action="login">
-			<input type="text" name="username" class="inputtext single" placeholder="Username / Email">
-			<input type="password" name="pass" class="inputtext single" placeholder="Password">
-			<input type="submit" value="MASUK" class="btn masuk"> 
-		</form>
-	</div>
-
-	<form action="http://localhost/get/bio.php" method="GET">
-	<div class="popup" id="popregister">
-		<a onclick="hilangkan_semua();" id="close">X</a>
-		<h3>Daftar</h3>
-		<form action="Daftar">
-			<input type="text" name="nlengkap" class="inputtext single" placeholder="Nama">
-			<input type="text" name="Email" class="inputtext single" placeholder="Email">
-			<input type="text" name="nope" class="inputtext single" placeholder="Nomer HP">
-			<input type="password" name="pass" class="inputtext single" placeholder="Password">
-			
-			<input type="checkbox" name="check" id="check"><label for="check">Saya Setuju dengan syarat dan ketentuan</label>
-			<input type="submit" value="Daftar" class="btn daftar"> 
-		</form>
-	</div>
-
+	
+	
  <!-- Bootstrap core JavaScript -->
     <script src="js/jquery/jquery.min.js"></script>
     <script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>

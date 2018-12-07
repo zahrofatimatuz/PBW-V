@@ -225,9 +225,11 @@
 	<div class="popup" id="poplogin">
 		<a onclick="hilangkan_semua();" id="close">X</a>
 		<h3>Masuk</h3>
-		<form action="login" action="ceklogin.php"onsubmit="return valid_input(this)">
+		<form action="login" action="ceklogin.php" onsubmit="return valid_input(this) method="post" ">
 			<input type="text" name="nama" class="inputtext single" placeholder="Username / Email">
+
 			<input type="password" name="pass" class="inputtext single" placeholder="Password">
+			
 			<input type="submit" name="login" value="login" class="btn masuk"> <input type="reset" value="Reset" class="btn masuk">
 		</form>
 		<a href='User.php'>Register ?</a>
