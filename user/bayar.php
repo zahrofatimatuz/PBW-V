@@ -86,9 +86,9 @@
           </tr>
         </tbody>
       </table>
-      <form action="UploadBuktiView.html" method="">
+      <form action="UploadBukti.php" method="">
         <div class="tombol-submit">
-          <button type="submit" class="btn btn-success"> Next </button>
+          <button type="submit" class="btn btn-success"> Lanjut </button>
         </div>
         <br>
        <p class="text-danger">*minimal pembayaran uang muka 50% dari total pesanan.</p>

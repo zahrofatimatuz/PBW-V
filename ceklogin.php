@@ -25,7 +25,7 @@ if($result > 0){
  
     // buat session login dan username
     //$_SESSION['id_user'] =$id_user;
-    $_SESSION['nama'] = $nama;
+    $_SESSION['nama'] = $data['nama'];
     $_SESSION['level'] = "admin";
     // alihkan ke halaman dashboard admin
     echo "<script>alert('anda berhasil masuk'); window.location.href = 'user/Home.php';</script>";
@@ -35,10 +35,11 @@ if($result > 0){
   }else if($data['level']=="member"){
     // buat session login dan username
     //$_SESSION['id_user'] =$id_user;
-    $_SESSION['nama'] = $nama;
+    $_SESSION['nama'] = $data['nama'];
+    $_SESSION['id_user'] = $data['id_user'];
     $_SESSION['level'] = "member";
     // alihkan ke halaman dashboard member
-    echo "<script>alert('anda berhasil masuk'); window.location.href = 'user/booking.php';</script>";
+    echo "<script>alert('anda berhasil masuk'); window.location.href = 'user/Home.php';</script>";
   
   }else{
  

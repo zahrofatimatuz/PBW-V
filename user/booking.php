@@ -24,31 +24,29 @@ $resLapangan = mysqli_query($link, $queryLapangan);
 <nav class="navbar nav-pills navbar-fixed-top">
     <div class="container-fluid">
 
-        <div class="navbar-header">
+      <div class="navbar-header">
 
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
-            <a class="navbar-brand" href="#home">
-                <img alt="Brand" src="../img/logo.png">
-            </a>
-        </div>
+        <a class="navbar-brand" href="Home.php">
+          <img alt="Brand" src="../img/logo.png">
+        </a>
+      </div>
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <form action="UploadBuktiView.html" id="bayar" method="">
-                <form action="BookingView.html" id="pesan" method="">
-                   <li><a href="User.php">Biodata</a></li>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+           <ul class="nav navbar-nav navbar-right">
+                       <li><a href="User.php">Biodata</a></li>
                         <li><a href="bayar.php">Pesanan</a></li>
                         <li><a href="UploadBukti.php">Pembayaran</a></li>
                         <li><a href="konfirmasi.php">konfirmasi</a></li>
                         <li><a href="../index.php">Keluar</a></li>
-                    </ul>
-        </div>
+        </ul>
+      </div>
     </div>
 </nav>
 
@@ -62,7 +60,7 @@ $resLapangan = mysqli_query($link, $queryLapangan);
     <br>
 
     <div class="row">
-        <form action="konfirmasil.php" id="lanjut" method="">
+        <form action="bayar.php" id="lanjut" method="">
             <div class="tombol-submit">
                 <button type="submit" id="lanjut" class="btn"> Lanjut </button>
             </div>
@@ -78,7 +76,7 @@ $resLapangan = mysqli_query($link, $queryLapangan);
                         <h3><?=$rowLapangan['nama_lapangan']?></h3>
                         <p><?=$rowLapangan['deskripsi']?></p>
                         <div class="bs-example">
-                            <div class="panel-group" id="accordion">a
+                            <div class="panel-group" id="accordion">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">

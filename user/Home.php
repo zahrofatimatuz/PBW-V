@@ -58,12 +58,9 @@ $resUser = mysqli_query($link, $queryUser);
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a class="nav-link js-scroll-trigger" href="#">Hai 
-					</a></li> <?php
-if (isset($_GET['nama'])) {
-echo "<b>$_GET[nama]</b>";
-}
-?>
+					<li><a class="nav-link js-scroll-trigger" href="#">Hai <?= $_SESSION['nama'] ?>
+					</a></li> 
+<li><a href="User.php">Biodata</a></li>
 					  <li><a href="bayar.php">Pesanan</a></li>
                         <li><a href="UploadBukti.php">Pembayaran</a></li>
                         <li><a href="konfirmasi.php">konfirmasi</a></li>
@@ -113,20 +110,22 @@ echo "<b>$_GET[nama]</b>";
 	</div>
 </section>
 
-
+	
 	<div class="container">
 
 		<div class="tanggal">
-
+<form action="cekbooking.php" method="post">
 			<div class="form-group">
 				<div class='input-group date' id='datetimepicker1'>
-					<input placeholder="masukkan tanggal" type='text' class="form-control" />
+					<input placeholder="masukkan tanggal" name="tanggal_pesanan" type='text' class="form-control" />
 					<span class="input-group-addon">
 						<span class="glyphicon glyphicon-calendar"></span>
 					</span>
 				</div>
 			</div>
-
+			<input type="submit" name="pilih" class="btn btn-default" id="tanggal" href="#" role="button"></input>
+		</form>
+<?php var_dump($_SESSION['id_user']); ?>
 <script type="text/javascript">
  $(function(){
   $("#datetimepicker1").datepicker({
@@ -138,14 +137,14 @@ echo "<b>$_GET[nama]</b>";
  });
 </script>
 
-			<script type="text/javascript">
+			<!-- <script type="text/javascript">
 				$(function () {
 					$('#datetimepicker1').datetimepicker();
 				});
-			</script>
-			<form action="Booking.php" method="">
+			</script> -->
+			<form action="cekbooking.php" method="post">
 				<div class="tombol-submit">
-			<button class="btn btn-default" id="tanggal" href="#" role="button">Pilih Tanggal</button>
+			<!-- <input type="submit" name="pilih" class="btn btn-default" id="tanggal" href="#" role="button"></input> -->
 		</div>
 	</form>
 </div>

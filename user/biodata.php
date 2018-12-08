@@ -75,6 +75,7 @@ include 'koneksi.php';
         // mencetak / menampilkan data
         echo "<tr>";       
         echo "<td><center>$no</td>";
+        echo "<td><center>$data[id_user]</td>";
         echo "<td><center>$data[nama]</td>"; //menampilkan data nim
         echo "<td><center>$data[email]</td>"; //menampilkan data nama
         echo "<td><center>$data[nope]</td>"; //menampilkan data fakultas

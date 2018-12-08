@@ -1,3 +1,7 @@
+<?php
+global $link;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +60,9 @@
               <?php
               include '../koneksi.php';
       // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim ORDER BY nim ASC
-              $query = "SELECT * FROM 'user' WHERE id_user = '$id_user' ";
+              $id=$_SESSION['id_user'];
+              $query = "SELECT * FROM user WHERE id_user = '$id'";
+              
               $result = mysqli_query($link, $query);
       //mengecek apakah ada error ketika menjalankan query
               if(!$result){
@@ -68,6 +74,7 @@
        {
         // mencetak / menampilkan data
         echo "<tr>";       
+        echo "<td><center>$no</td>";
         echo "<td><center>$data[nama]</td>"; //menampilkan data nama
         echo "<td><center>$data[email]</td>"; //menampilkan data email
         echo "<td><center>$data[no_hp]</td>"; //menampilkan data 

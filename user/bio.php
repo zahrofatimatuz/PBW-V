@@ -12,7 +12,7 @@ if (isset($_POST['input'])) {
   $password = $_POST['pass'];
  
   // jalankan query INSERT untuk menambah data ke database
-  $query = "SELECT * FROM `user` WHERE 1";
+  $query = "SELECT * FROM `user` WHERE id_user =".$_SESSION['id_user'];
   $result = mysqli_query($link, $query);
   // periska query apakah ada error
   if(!$result){

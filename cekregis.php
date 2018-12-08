@@ -38,6 +38,28 @@ if (isset($_POST['input'])) {
      " - ".mysqli_error($link));
     
   } else {
+
+   $query = mysqli_query ($link,"select * from user where nama='$nama' and pass='$pass'");
+  $data = mysqli_fetch_assoc($query);
+
+if($data['level']=="admin"){
+ 
+    // buat session login dan username
+    //$_SESSION['id_user'] =$id_user;
+    $_SESSION['nama'] = $data['nama'];
+    $_SESSION['level'] = "admin";
+    
+ 
+  // cek jika user login sebagai member
+  }else if($data['level']=="member"){
+    // buat session login dan username
+    //$_SESSION['id_user'] =$id_user;
+    $_SESSION['nama'] = $data['nama'];
+    $_SESSION['id_user'] = $data['id_user'];
+    $_SESSION['level'] = "member";
+  
+  }
+
         echo "<script>alert('Insert Data Berhasil'); window.location.href = 'user/Home.php';</script>";
 
 } 
