@@ -1,6 +1,6 @@
 <?php
 // memanggil file koneksi.php untuk melakukan koneksi database
-include 'koneksi.php';
+include '../koneksi.php';
 
 // mengecek apakah tombol input dari form telah diklik
 if (isset($_POST['input'])) {
@@ -8,11 +8,11 @@ if (isset($_POST['input'])) {
 	// membuat variabel untuk menampung data dari form
   $nama    = $_POST['nama'];
   $email   = $_POST['email'];
-  $no_hp   = $_POST['nope'];
+  $no_hp   = $_POST['no_hp'];
   $password = $_POST['pass'];
  
   // jalankan query INSERT untuk menambah data ke database
-  $query = "INSERT INTO user VALUES (NULL, '$nama', '$email', $no_hp,'$password')";
+  $query = "SELECT * FROM `user` WHERE 1";
   $result = mysqli_query($link, $query);
   // periska query apakah ada error
   if(!$result){
@@ -22,5 +22,5 @@ if (isset($_POST['input'])) {
 }
 
 // melakukan redirect (mengalihkan) ke halaman index.php
-header("location:HomeView.php");
+
 ?>

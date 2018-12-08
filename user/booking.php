@@ -35,28 +35,26 @@ $resLapangan = mysqli_query($link, $queryLapangan);
             </button>
 
             <a class="navbar-brand" href="#home">
-                <img alt="Brand" src="img/logo.png">
+                <img alt="Brand" src="../img/logo.png">
             </a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <form action="UploadBuktiView.html" id="bayar" method="">
                 <form action="BookingView.html" id="pesan" method="">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#" onclick="tampilkan_daftar();" class="register">Biodata</a></li>
-                        <li><a href="#pesan">Pesanan</a></li>
-                        <li><a href="#bayar">Pembayaran</a></li>
-                        <li><a href="#tentang">Tentang</a></li>
-                        <li><a href="#kontak">Keluar</a></li>
-
+                   <li><a href="User.php">Biodata</a></li>
+                        <li><a href="bayar.php">Pesanan</a></li>
+                        <li><a href="UploadBukti.php">Pembayaran</a></li>
+                        <li><a href="konfirmasi.php">konfirmasi</a></li>
+                        <li><a href="../index.php">Keluar</a></li>
                     </ul>
         </div>
     </div>
 </nav>
 
 <div class="container">
-    <h5 class="text-muted"> booking lapangan sesukamu</h5>
-    <h2>Pilih Lapangan dan Jamnya</h2>
+   <center> <h5 class="text-muted"> booking lapangan sesukamu</h5> </center>
+   <center> <h2>Pilih Lapangan dan Jamnya</h2> </center>
     <div class="langkah">
         <img class="center-block" id="langkah" src="../img/step/step-1.png">
     </div>
@@ -64,9 +62,9 @@ $resLapangan = mysqli_query($link, $queryLapangan);
     <br>
 
     <div class="row">
-        <form action="PayView.html" id="lanjut" method="">
+        <form action="konfirmasil.php" id="lanjut" method="">
             <div class="tombol-submit">
-                <button type="submit" id="lanjut" class="btn"> Next</button>
+                <button type="submit" id="lanjut" class="btn"> Lanjut </button>
             </div>
         </form>
 

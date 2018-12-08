@@ -1,3 +1,9 @@
+<?php
+include "../koneksi.php";
+$queryUser = "SELECT nama FROM user WHERE id_user = $id_user";
+$resUser = mysqli_query($link, $queryUser);
+?>
+<?php ?>
 <!DOCTYPE html>
 <html lang="en" id="home">
 
@@ -52,9 +58,15 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a class="nav-link js-scroll-trigger" href="#">Hai</a></li> 
-					<li><a class="nav-link js-scroll-trigger" href="booking.php">Pesanan</a></li>
-					<li><a  class="nav-link js-scroll-trigger" href="bayar.php">Pembayaran</a></li>
+					<li><a class="nav-link js-scroll-trigger" href="#">Hai 
+					</a></li> <?php
+if (isset($_GET['nama'])) {
+echo "<b>$_GET[nama]</b>";
+}
+?>
+					  <li><a href="bayar.php">Pesanan</a></li>
+                        <li><a href="UploadBukti.php">Pembayaran</a></li>
+                        <li><a href="konfirmasi.php">konfirmasi</a></li>
 					<li><a  class="nav-link js-scroll-trigger" href="../index.php">Keluar</a></li>
 
 				</ul>
@@ -131,13 +143,12 @@
 					$('#datetimepicker1').datetimepicker();
 				});
 			</script>
-			<form action="BookingView.html" method="">
+			<form action="Booking.php" method="">
 				<div class="tombol-submit">
 			<button class="btn btn-default" id="tanggal" href="#" role="button">Pilih Tanggal</button>
 		</div>
 	</form>
 </div>
-<input type="text" id="datepicker"/>
 		<section class="tentang" id="tentang">
 			<div container>
 				<div class="row">

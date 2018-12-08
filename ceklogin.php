@@ -24,6 +24,7 @@ if($result > 0){
   if($data['level']=="admin"){
  
     // buat session login dan username
+    //$_SESSION['id_user'] =$id_user;
     $_SESSION['nama'] = $nama;
     $_SESSION['level'] = "admin";
     // alihkan ke halaman dashboard admin
@@ -31,19 +32,19 @@ if($result > 0){
     
  
   // cek jika user login sebagai member
-  }else if($data['level']=="nama"){
+  }else if($data['level']=="member"){
     // buat session login dan username
+    //$_SESSION['id_user'] =$id_user;
     $_SESSION['nama'] = $nama;
     $_SESSION['level'] = "member";
     // alihkan ke halaman dashboard member
     echo "<script>alert('anda berhasil masuk'); window.location.href = 'user/booking.php';</script>";
-    
- 
-  // cek jika user login sebagai pengurus
+  
   }else{
  
     // alihkan ke halaman login kembali
-    header("location:index.php?pesan=gagal");
+echo "<script>alert('silahkan ulangi lagi'); window.location.href = 'index.php';</script>";
+  
   } 
 }
 

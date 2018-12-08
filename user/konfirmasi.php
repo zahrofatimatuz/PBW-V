@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="../css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Courgette|Handlee|Lato|Poppins|Righteous|Saira|Text+Me+One" rel="stylesheet">
@@ -25,19 +25,18 @@
           <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand" href="#home">
-          <img alt="Brand" src="img/logo.png">
+        <a class="navbar-brand" href="Home.php">
+          <img alt="Brand" src="../img/logo.png">
         </a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" onclick="tampilkan_daftar();" class="register">Daftar</a></li>
-          <li><a href="#" onclick="tampilkan_masuk();" class="login">Masuk</a></li>
-          <li><a href="#pesan">Pesanan</a></li>
-          <li><a href="#tentang">Tentang</a></li>
-          <li><a href="#kontak">Contact</a></li>
-
+            <ul class="nav navbar-nav navbar-right">
+                        <li><a href="User.php">Biodata</a></li>
+                        <li><a href="bayar.php">Pesanan</a></li>
+                        <li><a href="UploadBukti.php">Pembayaran</a></li>
+                        <li><a href="konfirmasi.php">konfirmasi</a></li>
+                        <li><a href="../index.php">Keluar</a></li>
         </ul>
       </div>
     </div>
@@ -48,7 +47,7 @@
     <div class="row">
 
   <div class="langkah">
-    <img class="center-block" id="langkah" src="img/step/step-4.png">
+    <img class="center-block" id="langkah" src="../img/step/step-4.png">
     </div>
 <div class="content">
     <ul class="list-inline">

@@ -19,12 +19,14 @@ if (isset($_POST['input'])) {
         header('location: index.php?error=' .base64_encode('Username tidak boleh kosong'));   
     }
     if (empty($no_hp)) {
+        header('location: index.php?error=' .base64_encode('no_hp tidak boleh kosong'));   
+    }
+     if (empty($pass)) {
         header('location: index.php?error=' .base64_encode('Password tidak boleh kosong'));   
     }
      // validasi apakah password dengan repassword sama
    
     // encryption dengan md5
-    $pass = md5($pass);
     $level = 'member'; // default, 
  
   // jalankan query INSERT untuk menambah data ke database
@@ -36,7 +38,7 @@ if (isset($_POST['input'])) {
      " - ".mysqli_error($link));
     
   } else {
-        echo "<script>alert('Insert Data Berhasil'); window.location.href = 'index.php';</script>";
+        echo "<script>alert('Insert Data Berhasil'); window.location.href = 'user/Home.php';</script>";
 
 } 
 } 
