@@ -69,25 +69,10 @@
 
                     <div class="col-md-7">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Nama Lapangan" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" placeholder="Jadwal" aria-describedby="basic-addon1">
                         </div>
 
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Panjang" aria-describedby="basic-addon2"><span class="input-group-addon" id="basic-addon2">x</span>
-                            <input type="text" class="form-control" placeholder="Lebar" aria-describedby="basic-addon2">
-                            <span class="input-group-addon" id="basic-addon2">cm</span>
-                        </div>
 
-                        <div class="input-group">
-                            <span class="input-group-addon" id="basic-addon2">Rp</span>
-                            <input type="text" class="form-control" placeholder="Harga" aria-describedby="basic-addon2">
-                            <span class="input-group-addon" id="basic-addon2">/Jam</span>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="comment">Deskripsi:</label>
-                            <textarea class="form-control" rows="5" id="comment"></textarea>
-                        </div>
                     </div>
                 <input type="submit" value="Simpan" id="simpan" class="btn simpan rounded-0">
                 <input type="submit" value="Batal" id="batal" class="btn batal">
