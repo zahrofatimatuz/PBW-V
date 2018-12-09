@@ -28,7 +28,7 @@ if($result > 0){
     $_SESSION['nama'] = $data['nama'];
     $_SESSION['level'] = "admin";
     // alihkan ke halaman dashboard admin
-    echo "<script>alert('anda berhasil masuk'); window.location.href = 'user/Home.php';</script>";
+    echo "<script>alert('anda berhasil masuk'); window.location.href = 'admin/homeadmin.php';</script>";
     
  
   // cek jika user login sebagai member
