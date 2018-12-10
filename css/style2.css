@@ -13,12 +13,13 @@ body{
 	background-color: #A3CFB5;
 }
 
-body{
-	background-color: #A3CFB5;
-}
-
 *h2{
 	color: #147D14;
+	text-align: center;
+	}
+*h1{
+	color: #147D14;
+	text-align: center;
 }
 
 .navbar{
@@ -44,15 +45,6 @@ body{
 .navbar-brand{
 	margin-top: -5%;
 }
-#adminbar{
-	float:right;
-	color: #aaeeaa;
-	display:block;
-	width:100%;
-	min-height:100%;
-	bagcround-color: eaeaea;
-}
-
 
 #input-group{
 	margin-top: 2%;

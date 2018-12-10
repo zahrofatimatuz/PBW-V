@@ -53,9 +53,7 @@ $res = mysqli_query($link, $query);
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#lapangan">Lapangan</a></li>
-					<li><a href="#pesanan">Pesanan</a></li>
-
+                    <li><a  class="nav-link js-scroll-trigger" href="../index.php">Keluar</a></li>
 				</ul>
 			</div>
 		</div>

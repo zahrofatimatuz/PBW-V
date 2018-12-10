@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap-datepicker3.js"></script>
 
     <!-- Font Online -->
 
@@ -46,12 +47,9 @@
                     <img alt="Brand" src="../img/logo.png">
                 </a>
             </div>
-
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#lapangan">Lapangan</a></li>
-                    <li><a href="#pesanan">Pesanan</a></li>
-                    <li><a href="#jadwal">Jadwal</a></li>
+                    <li><a  class="nav-link js-scroll-trigger" href="../index.php">Keluar</a></li>
                 </ul>
             </div>
         </div>
@@ -61,7 +59,8 @@
 
     <section>
         <div class="container">
-            <div class="inputlapangan">
+            <form action="proses/prosestambahjadwal.php" method="post">
+            <div class="inputjadwal">
                 <div class="row">
 
                     <h2><strong><center>Tambah Jadwal</center></strong></h2>
@@ -69,16 +68,31 @@
 
                     <div class="col-md-7">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Jadwal" aria-describedby="basic-addon1">
+                                <div class="well">
+                                <div id="datetimepicker3" class="input-append">
+                                    <input data-format="hh:mm:ss" name="jadwal" type="text"></input>
+                                    <span class="add-on">
+                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                                    </i>
+                                    </span>
+                                </div>
+                            </div>
+                            <script type="text/javascript">
+                                $(function() {
+                                    $('#datetimepicker3').datetimepicker({
+                                        pickDate: false
+                                    });
+                                });
+                            </script>
                         </div>
-
-
                     </div>
-                <input type="submit" value="Simpan" id="simpan" class="btn simpan rounded-0">
+                <input href="proses/prosestambahjadwal.php?id=<?php echo $row['id_jadwal'] ?>" type="submit" value="Simpan" id="simpan" class="btn simpan rounded-0">
                 <input type="submit" value="Batal" id="batal" class="btn batal">
             </div>
             <br>
             <br>
+        </div>
+            </form>
         </div>
     </section>
     <footer>

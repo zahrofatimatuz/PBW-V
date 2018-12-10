@@ -11,4 +11,4 @@ $res = mysqli_query($link, $sql);
 if (!$res){
     die(mysqli_error($link));
 }
-header('location: ../daftarjdwal.php');
+header('location: ../daftarjadwal.php');

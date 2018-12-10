@@ -55,8 +55,7 @@ $res = mysqli_query($link, $query);
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#lapangan">Lapangan</a></li>
-                <li><a href="#pesanan">Pesanan</a></li>
+                <li><a  class="nav-link js-scroll-trigger" href="../index.php">Keluar</a></li>
             </ul>
         </div>
     </div>
@@ -75,7 +74,7 @@ $res = mysqli_query($link, $query);
 
                     <div class="col-md-7">
                         <div class="input-group">
-                            <input type="text" name="namalapangan" value="<?php echo $row['id_jadwal'] ?>" class="form-control" placeholder="Nama Lapangan"
+                            <input type="text" name="namalapangan" value="<?php echo $row['id_jadwal']?>" class="form-control" placeholder="Nama Lapangan"
                                    aria-describedby="basic-addon1">
                         </div>
 
@@ -132,7 +131,7 @@ $res = mysqli_query($link, $query);
                     </div>
 
                 </div>
-                <input href="proses/proseseditlapangan.php?id=<?php echo $row['id_lapangan'] ?>" type="submit" value="Simpan" id="simpan" class="btn simpan rounded-0">
+                <input href="proses/proseseditlapangan.php?id=<?php echo $row['id_lapangan']?>" type="submit" value="Simpan" id="simpan" class="btn simpan rounded-0">
                 <input href="" type="submit" value="Batal" id="batal" class="btn batal">
             </div>
         </form>

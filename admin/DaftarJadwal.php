@@ -7,8 +7,10 @@
     <html lang="en" id="home">
 
     <head>
+
         <title>BolaOn : Daftar Lapangan</title>
         <link rel="../img/logosquare.png" href="img/logosquare.png">
+        <link href="../css/style2.css" rel="stylesheet">
 
         <!-- Bootstrap -->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +24,7 @@
 
         <link href="https://fonts.googleapis.com/css?family=Courgette|Handlee|Lato|Poppins|Righteous|Saira|Text+Me+One" rel="stylesheet">
 
+
     </head>
 
     <body>
@@ -30,7 +33,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- css -->
-        <link href="../css/style2.css" rel="stylesheet">
 
 
         <!-- Navbar -->
@@ -53,13 +55,19 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#lapangan">Lapangan</a></li>
-                        <li><a href="#pesanan">Pesanan</a></li>
-
+                        <li><a  class="nav-link js-scroll-trigger" href="../index.php">Keluar</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
+
+        <div class="sidebar">
+            <a class="active" href="#home">Home</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+        </div>
+
 
         <section>
             <div class="container">

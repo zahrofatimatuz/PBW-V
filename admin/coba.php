@@ -1,20 +1,15 @@
     <?php
     include "../koneksi.php";
-    $query = "SELECT * FROM lapangan";
+    $query = "SELECT * FROM jadwal";
     $res = mysqli_query($link, $query);
     ?>
     <!DOCTYPE html>
     <html lang="en" id="home">
 
     <head>
-        <title>BolaOn : Daftar Lapangan</title>
+
+        <title>BolaOn : COBA</title>
         <link rel="../img/logosquare.png" href="img/logosquare.png">
-
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- css -->
         <link href="../css/style2.css" rel="stylesheet">
 
         <!-- Bootstrap -->
@@ -29,51 +24,63 @@
 
         <link href="https://fonts.googleapis.com/css?family=Courgette|Handlee|Lato|Poppins|Righteous|Saira|Text+Me+One" rel="stylesheet">
 
+
     </head>
 
     <body>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- css -->
+
 
         <!-- Navbar -->
-        <nav class="navbar nav-pills navbar-fixed-top">
+        <?php
+        include "navbaradmin.php";
+        ?>
+
+        <nav class="navbar navbar-default sidebar" role="navigation">
             <div class="container-fluid">
-
                 <div class="navbar-header">
-
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
-                    <a class="navbar-brand" href="#home">
-                        <img alt="Brand" src="../img/logo.png">
-                    </a>
                 </div>
-
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a  class="nav-link js-scroll-trigger" href="../index.php">Keluar</a></li>
+                <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
+                            <ul class="dropdown-menu forAnimate" role="menu">
+                                <li><a href="{{URL::to('createusuario')}}">Crear</a></li>
+                                <li><a href="#">Modificar</a></li>
+                                <li><a href="#">Reportar</a></li>
+                            </ul>
+                        </li>
+                        <li ><a href="#">Libros<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
+                        <li ><a href="#">Tags<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
                     </ul>
                 </div>
             </div>
         </nav>
 
+
         <section>
             <div class="container">
                 <div class="daftarlapangan">
                     <div class="row">
-                        <h2><strong>Daftar Lapangan</strong></h2>
+                        <h2><strong><center>Daftar Lapangan</center></strong></h2>
                         <br>
                         <div class="col-md-7" id="daftarlapangan" >
-                            <table class="table table-hover">
+                            <center><table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Nama Lapangan</th>
-                                        <th>Ukuran</th>
-                                        <th>Harga</th>
-                                        <th>Keterangan</th>
-                                        <th>Gambar</th>
+                                        <th>Id Jadwal</th>
+                                        <th>Jadwal</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -82,26 +89,22 @@
                                     while ($row=mysqli_fetch_assoc($res)) {
                                     ?>
                                     <tr>
-                                        <td><?php echo $row['nama_lapangan'] ?></td>
-                                        <td><?php echo $row['ukuran']?></td>
-                                        <td><?php echo $row['harga']?></td>
-                                        <td><?php echo $row['keterangan'] ?></td>
-                                        <td><?php echo $row['gambar'] ?></td>
-                                        <td>
-                                            <a href="editlapangan.php?id=<?php echo $row['id_lapangan'] ?>" class="btn btn-primary">Edit</a>
-                                            <a href="proses/proseshapuslapangan.php?id=<?php echo $row['id_lapangan'] ?>" class="btn btn-danger">Hapus</a>
-                                        </td>
-                                    </tr>
+                                        <td><?php echo $row['id_jadwal']?></td>
+                                        <td><?php echo $row['jadwal']?></td>
+                                        <td><a href="proses/proseshapusjadwal.php?id=<?php echo $row['id_jadwal'] ?>" class="btn btn-danger">Hapus</a></td>
                                     <?php
                                         }
                                     ?>
+
                                 </tbody>
 
                             </table>
+                        </center>
                     </div>
+
                 </div>
                 <div class="tombol">
-                    <form action="tambahlapangan.php" method="">
+                    <form action="tambahjadwal.php" method="post">
                         <input type="submit" value="Tambah" id="simpan" class="btn simpan rounded-0">
                     </form>
                 </div>
@@ -110,15 +113,20 @@
         <br>
         <br>
     </div>
+
     </section>
 
-        <footer>
+
+    <footer>
         <div class="row">
+
         </div>
+
     </footer>
 
     <script src="../js/jquery-3.3.1.min"></script>
     <script src="../js/bootstrap.min.js"></script>
+    </div>
     </div>
     </body>
     </html>

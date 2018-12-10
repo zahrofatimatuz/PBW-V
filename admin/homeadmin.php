@@ -53,7 +53,7 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="nav-link js-scroll-trigger" href="#tentang">Keluar</a></li>
+                    <li><a  class="nav-link js-scroll-trigger" href="../index.php">Keluar</a></li>
                 </ul>
             </div>
         </div>
