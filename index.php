@@ -252,14 +252,7 @@
     if (form.no_hp.value == ""){
         alert("no_hp masih kosong!");
         form.no_hp.focus();
-        } else {
-   pola_username=/^[0-9\_\-]{12,100}$/;
-   if (!pola_username.test(form.no_hp.value)){
-      alert ('No HP minimal 12 karakter dan hanya boleh Angka!');
-      form.no_hp.focus();
-      return false;
-   }
-        }
+        } 
     if (form.pass.value == ""){
         alert("no_hp masih kosong!");
         form.pass.focus();

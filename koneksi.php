@@ -4,7 +4,7 @@
   $host = "localhost";
   $user = "root";
   $pass = "";
-  $name = "bolaon";
+  $name = "booking";
   $link = mysqli_connect($host,$user,$pass,$name);
   
   if(!$link){

@@ -25,7 +25,7 @@ if (isset($_POST['pilih'])) {
   die ("Query gagal dijalankan: ".mysqli_error($link));
     
   } else {
-        echo "<script>alert('Insert Data Berhasil'); window.location.href = 'booking.php';</script>";
+        echo "<script>alert('Insert Data Berhasil'); window.location.href = 'cobabooking.php';</script>";
 
 } 
  $format1 = date('d F Y', strtotime($tanggal_pesanan ));

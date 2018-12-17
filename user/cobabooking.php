@@ -64,56 +64,34 @@ $resLapangan = mysqli_query($link, $queryLapangan);
                 <?php
         while ($rowLapangan = mysqli_fetch_assoc($resLapangan)) {
             ?>
-        <form action="bayar.php/<?=$rowLapangan['id_lapangan']?>" id="lanjut" method="">
+        
            
-
-
-
-            <div class="col-md-2">
-                <div class="thumbnail">
-                    <img src="../img/lap3.png" alt="barang1">
-                    <div class="caption">
-                        <h3><?=$rowLapangan['nama_lapangan']?></h3>
-                        <p><?=$rowLapangan['deskripsi']?></p>
-                        <div class="bs-example">
-                            <div class="panel-group" id="accordion">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Pilih Jam</a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapse1" class="panel-collapse collapse">
-                                        <div class="checkbox">
-
-                                            <?php
-                                            while ($rowJadwal = mysqli_fetch_assoc($resJadwal)) {
-                                                ?>
-                                                <label class="checkbox-inline"> <input type="checkbox" value="jam">
-                                                    <td><?php echo $rowJadwal['jadwal'] ?>
-                                                        
-                                                    </td>
-
-
-                                                </label>
-                                                <?php
-                                            }
-                                            ?>
-                                             <div class="tombol-submit">
-                <button type="submit" id="lanjut" class="btn"> Lanjut </button>
-            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<h1> <?=$rowLapangan['nama_lapangan']?> </h1>
+ <table class="table table-condensed" >
+      <tr>
+        <th><center> # </th>
+        <th><center> Nama Jadwal</th>
+        <th><center> status </th>
+        </tr>
+        <tbody>
+            <form action="bayar.php/<?=$rowLapangan['id_jadwal']?>" id="lanjut" method="">
+                                    <?php
+                                    while ($rowJadwal=mysqli_fetch_assoc($resJadwal)) {
+                                    ?>
+                                    <tr>
+                                        <td><center><input type="checkbox" value="jam"></center></td>
+                                        <td><center><?php echo $rowJadwal['jadwal']?></center></td>
+                                        <td><center><button type="submit" id="lanjut" class="btn btn-primary"> Lanjut </button></center></td>
+                                    <?php
+                                        }
+                                    ?>
+  </form>
+                                </tbody>
+    </table>
             <?php
         }
         ?>
-    </form>
+  
     </div>
 </div>
 </body>
