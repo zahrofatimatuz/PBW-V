@@ -19,9 +19,8 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a class="nav-link js-scroll-trigger" href="#">Hai <?= $_SESSION['nama'] ?>
+                <li><a class="nav-link js-scroll-trigger" href="User.php">Hai<?= $_SESSION['nama']?>
                     </a></li>
-                <li><a href="User.php">Akun</a></li>
                 <li><a href="bayar.php">Pesanan</a></li>
                 <li><a href="UploadBukti.php">Pembayaran</a></li>
                 <li><a href="konfirmasi.php">Konfirmasi</a></li>

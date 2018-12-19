@@ -1,4 +1,13 @@
-<?php  ?>
+<?php
+include "../koneksi.php";
+if (!isset($_SESSION['level']) || $_SESSION['level'] != "member") {
+    header("Location: ../ind.php");
+    exit;
+}
+
+$queryUser = "SELECT nama FROM user WHERE id_user = " . $_SESSION['id_user'];
+$resUser = mysqli_query($link, $queryUser);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -124,7 +124,7 @@
                                         }
                                     }
                                 </script>
-                                <input type='file' id="btnupimg" onchange="readURL(this);"/>
+                                <input type='file' name="gambar" id="btnupimg" onchange="readURL(this);"/>
                             </div>
                         </div>
 

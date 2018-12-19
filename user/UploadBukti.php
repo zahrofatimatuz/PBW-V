@@ -1,4 +1,13 @@
-<<?php ?>
+<?php
+include "../koneksi.php";
+if (!isset($_SESSION['level']) || $_SESSION['level'] != "member") {
+    header("Location: ../ind.php");
+    exit;
+}
+
+$queryUser = "SELECT nama FROM user WHERE id_user = " . $_SESSION['id_user'];
+$resUser = mysqli_query($link, $queryUser);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,59 +28,59 @@ include "navbar.php";
 ?>
 
 <div class="container">
-    <div class="col-md-12 center"></div>
-    <div class="row">
-        <div class="langkah">
-            <img class="center-block" id="langkah" src="../img/step/step-3.png">
-        </div>
+        <div class="row">
+            <div class="langkah">
+                <img class="center-block" id="langkah" src="../img/step/step-3.png">
+            </div>
 
-        <div class="content">
-            <form action="proses_upload.php?id=<?php echo $_GET['id']; ?>" method="post" enctype="multipart/form-data">
-                <ul class="list-inline">
-                    <li style="color: #01D362"><h2><u><strong>Upload </strong></h2></u></li>
-                    <li><h2><strong>Bukti Pembayaran </strong></h2></li>
-                </ul>
+            <div class="content">
+                <form action="proses_upload.php?id=<?php echo $_GET['id']; ?>" method="post"
+                      enctype="multipart/form-data">
+                    <ul class="list-inline">
+                        <li style="color: #01D362"><h2><u><strong>Upload </strong></h2></u></li>
+                        <li><h2><strong>Bukti Pembayaran </strong></h2></li>
+                    </ul>
 
-                <div class="form-group">
-                    <label for="bayar">Nominal bayar:</label>
-                    <input type="text" name="bayar" class="form-control" id="bayar">
-                </div>
-
-                <div class="td">
-                    <h3>Waktu anda untuk membayar uang muka tersisa : 15 menit</h3>
-                    <h4 class="text-danger"> *mohon untuk upload bukti pembayaran di bawah ini </h4>
-                    <div class="uploadbukti">
-
-                        <img id="upimg" class='thumbnail' src="http://placehold.it/180" alt="your image"/>
-
-
-                        <input type='file' id="btnupimg" name="bukti" onchange="readURL(this);"/>
+                    <div class="form-group">
+                        <label for="bayar">Nominal bayar:</label>
+                        <input type="text" name="bayar" class="form-control" id="bayar">
                     </div>
-                </div>
+
+                    <div class="td">
+                        <h3>Waktu anda untuk membayar uang muka tersisa : 15 menit</h3>
+                        <h4 class="text-danger"> *mohon untuk upload bukti pembayaran di bawah ini </h4>
+                        <div class="uploadbukti">
+
+                            <img id="upimg" class='thumbnail' src="http://placehold.it/180" alt="your image"/>
 
 
-                <div class="tombol-submit">
-                    <button type="submit" class="btn btn-success" id="selesai"> Selesai</button>
-                </div>
-            </form>
+                            <input type='file' id="btnupimg" name="bukti" onchange="readURL(this);"/>
+                        </div>
+                    </div>
+
+
+                    <div class="tombol-submit">
+                        <button type="submit" class="btn btn-success" id="selesai"> Selesai</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
-<script type="text/javascript">
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#upimg')
+                        .attr('src', e.target.result);
+                };
 
-            reader.onload = function (e) {
-                $('#upimg')
-                    .attr('src', e.target.result);
-            };
-
-            reader.readAsDataURL(input.files[0]);
+                reader.readAsDataURL(input.files[0]);
+            }
         }
-    }
-</script>
+    </script>
 
 </body>
 </html>
