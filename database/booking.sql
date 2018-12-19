@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 17 Des 2018 pada 13.19
--- Versi server: 10.1.35-MariaDB
--- Versi PHP: 7.2.9
+-- Host: localhost
+-- Generation Time: Dec 19, 2018 at 10:14 PM
+-- Server version: 10.3.11-MariaDB-1:10.3.11+maria~bionic-log
+-- PHP Version: 7.2.10-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_pesanan`
+-- Table structure for table `detail_pesanan`
 --
 
 CREATE TABLE `detail_pesanan` (
@@ -34,10 +34,20 @@ CREATE TABLE `detail_pesanan` (
   `id_jadwal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `detail_pesanan`
+--
+
+INSERT INTO `detail_pesanan` (`id_pesanan`, `id_lapangan`, `id_jadwal`) VALUES
+(41, 6, 1),
+(41, 6, 2),
+(41, 7, 2),
+(41, 7, 3);
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jadwal`
+-- Table structure for table `jadwal`
 --
 
 CREATE TABLE `jadwal` (
@@ -46,7 +56,7 @@ CREATE TABLE `jadwal` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `jadwal`
+-- Dumping data for table `jadwal`
 --
 
 INSERT INTO `jadwal` (`id_jadwal`, `jadwal`) VALUES
@@ -68,7 +78,7 @@ INSERT INTO `jadwal` (`id_jadwal`, `jadwal`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `lapangan`
+-- Table structure for table `lapangan`
 --
 
 CREATE TABLE `lapangan` (
@@ -82,7 +92,7 @@ CREATE TABLE `lapangan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `lapangan`
+-- Dumping data for table `lapangan`
 --
 
 INSERT INTO `lapangan` (`id_lapangan`, `nama_lapangan`, `harga`, `ukuran`, `keterangan`, `gambar`, `deskripsi`) VALUES
@@ -92,19 +102,20 @@ INSERT INTO `lapangan` (`id_lapangan`, `nama_lapangan`, `harga`, `ukuran`, `kete
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pembayaran`
+-- Table structure for table `pembayaran`
 --
 
 CREATE TABLE `pembayaran` (
   `idPembayaran` int(11) NOT NULL,
   `bayar` int(11) NOT NULL,
-  `buktiBayar` blob NOT NULL
+  `buktiBayar` varchar(255) NOT NULL,
+  `id_pesanan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pesanan`
+-- Table structure for table `pesanan`
 --
 
 CREATE TABLE `pesanan` (
@@ -114,132 +125,137 @@ CREATE TABLE `pesanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pesanan`
+-- Dumping data for table `pesanan`
 --
 
 INSERT INTO `pesanan` (`id_pesanan`, `id_user`, `tanggal_pesanan`) VALUES
-(1, 5, '2018-12-13'),
-(6, 5, '2018-12-07'),
-(7, 5, '2018-12-21'),
-(8, 5, '2018-12-21');
+(41, 6, '2018-12-27');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `nama` varchar(32) NOT NULL,
   `email` varchar(32) NOT NULL,
-  `no_hp` int(11) NOT NULL,
+  `no_hp` varchar(20) NOT NULL,
   `pass` varchar(32) NOT NULL,
   `level` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `email`, `no_hp`, `pass`, `level`) VALUES
-(1, 'faza', 'fazahoy@gmail.com', 89, 'd8578edf8458ce06fbc5bb76a58c5ca4', '0'),
-(2, 'saya', 'saya@gmail.com', 85, '20c1a26a55039b30866c9d0aa51953ca', '0'),
-(3, 'admin', 'admin@gmail.com', 526263, 'admin', 'admin'),
-(4, 'Nanas', 'nanas@gmail.com', 89, 'a869c600c9fc943e1b79dd9594a02e76', 'member'),
-(5, 'jojo', 'jojo@gmail.com', 353082535, 'jojo', 'member');
+(1, 'faza', 'fazahoy@gmail.com', '89', 'd8578edf8458ce06fbc5bb76a58c5ca4', '0'),
+(2, 'saya', 'saya@gmail.com', '85', '20c1a26a55039b30866c9d0aa51953ca', '0'),
+(3, 'admin', 'admin@gmail.com', '526263', 'admin', 'admin'),
+(4, 'Nanas', 'nanas@gmail.com', '89', 'a869c600c9fc943e1b79dd9594a02e76', 'member'),
+(5, 'jojo', 'jojo@gmail.com', '353082535', 'jojo', 'member'),
+(6, 'Yusuf Eka', 'yusufblegoh@gmail.com', '087751750878', 'blegoh', 'member');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `detail_pesanan`
+-- Indexes for table `detail_pesanan`
 --
 ALTER TABLE `detail_pesanan`
-  ADD UNIQUE KEY `id_pesanan` (`id_pesanan`) USING BTREE,
-  ADD KEY `id_lapangan` (`id_lapangan`),
-  ADD KEY `id_jadwal` (`id_jadwal`);
+  ADD UNIQUE KEY `id_pesanan` (`id_pesanan`,`id_lapangan`,`id_jadwal`) USING BTREE,
+  ADD KEY `detail_pesanan_ibfk_1` (`id_lapangan`),
+  ADD KEY `detail_pesanan_ibfk_2` (`id_jadwal`);
 
 --
--- Indeks untuk tabel `jadwal`
+-- Indexes for table `jadwal`
 --
 ALTER TABLE `jadwal`
   ADD PRIMARY KEY (`id_jadwal`);
 
 --
--- Indeks untuk tabel `lapangan`
+-- Indexes for table `lapangan`
 --
 ALTER TABLE `lapangan`
   ADD PRIMARY KEY (`id_lapangan`);
 
 --
--- Indeks untuk tabel `pembayaran`
+-- Indexes for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  ADD PRIMARY KEY (`idPembayaran`);
+  ADD PRIMARY KEY (`idPembayaran`),
+  ADD KEY `id_pesanan` (`id_pesanan`);
 
 --
--- Indeks untuk tabel `pesanan`
+-- Indexes for table `pesanan`
 --
 ALTER TABLE `pesanan`
   ADD PRIMARY KEY (`id_pesanan`),
   ADD KEY `id_user` (`id_user`) USING BTREE;
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `jadwal`
+-- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
   MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT untuk tabel `lapangan`
+-- AUTO_INCREMENT for table `lapangan`
 --
 ALTER TABLE `lapangan`
   MODIFY `id_lapangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `pembayaran`
+-- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
   MODIFY `idPembayaran` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `pesanan`
+-- AUTO_INCREMENT for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `detail_pesanan`
+-- Constraints for table `detail_pesanan`
 --
 ALTER TABLE `detail_pesanan`
-  ADD CONSTRAINT `detail_pesanan_ibfk_1` FOREIGN KEY (`id_pesanan`) REFERENCES `pesanan` (`id_pesanan`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `detail_pesanan_ibfk_2` FOREIGN KEY (`id_lapangan`) REFERENCES `lapangan` (`id_lapangan`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `detail_pesanan_ibfk_3` FOREIGN KEY (`id_jadwal`) REFERENCES `jadwal` (`id_jadwal`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `detail_pesanan_ibfk_1` FOREIGN KEY (`id_lapangan`) REFERENCES `lapangan` (`id_lapangan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detail_pesanan_ibfk_2` FOREIGN KEY (`id_jadwal`) REFERENCES `jadwal` (`id_jadwal`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detail_pesanan_ibfk_3` FOREIGN KEY (`id_pesanan`) REFERENCES `pesanan` (`id_pesanan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `pesanan`
+-- Constraints for table `pembayaran`
+--
+ALTER TABLE `pembayaran`
+  ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`id_pesanan`) REFERENCES `pesanan` (`id_pesanan`);
+
+--
+-- Constraints for table `pesanan`
 --
 ALTER TABLE `pesanan`
   ADD CONSTRAINT `pesanan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
