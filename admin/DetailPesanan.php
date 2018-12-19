@@ -1,4 +1,4 @@
-<<?php  ?>
+<?php  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,10 +42,7 @@
     <div class="col-md-12 center"></div>
     <div class="row">
 
-  <div class="langkah">
-    <img class="center-block" id="langkah" src="../img/step/step-4.png">
-    </div>
-<div class="content">
+  <div class="content">
     <ul class="list-inline">
     <li style="color: #01D362"><h2><u><strong>Status</strong></h2></u></li>
     <li><h2><strong>Booking</strong></h2></li>
@@ -103,11 +100,6 @@
 </div>
 </div>
 </div>
- 
-            <br>
-            <br>
-
-      
     
 </div>
 
