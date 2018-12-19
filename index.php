@@ -206,7 +206,7 @@ if (isset($_SESSION['id_user'])) {
     <a onclick="hilangkan_semua();" id="close">X</a>
     <h3>Masuk</h3>
     <form action="ceklogin.php" onsubmit="return valid_input(this)" method="post">
-        <input type="text" name="nama" class="inputtext single" placeholder="Username / Email">
+        <input type="text" name="nama" class="inputtext single" placeholder="Username">
 
         <input type="password" name="pass" class="inputtext single" placeholder="Password">
 
@@ -313,6 +313,5 @@ if (isset($_SESSION['id_user'])) {
         anu2.style.display = "none";
     }
 </script>
-
 </body>
 </html>

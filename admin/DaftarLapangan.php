@@ -27,77 +27,59 @@
 
         <!-- Font Online -->
 
-        <link href="https://fonts.googleapis.com/css?family=Courgette|Handlee|Lato|Poppins|Righteous|Saira|Text+Me+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Courgette|Handlee|Lato|Poppins|Righteous|Saira|Text+Me+One"
+              rel="stylesheet">
 
     </head>
 
     <body>
 
-        <!-- Navbar -->
-        <nav class="navbar nav-pills navbar-fixed-top">
-            <div class="container-fluid">
+    <!-- Navbar -->
+    <?php
+    include "navbaradmin.php";
+    ?>
 
-                <div class="navbar-header">
+    <section>
+        <div class="container">
+            <div class="daftarlapangan">
+                <div class="row">
+                    <h2><strong>Daftar Lapangan</strong></h2>
+                    <br>
+                    <div class="col-md-7" id="daftarlapangan">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>Nama Lapangan</th>
+                                <th>Ukuran</th>
+                                <th>Harga</th>
+                                <th>Keterangan</th>
+                                <th>Gambar</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            while ($row = mysqli_fetch_assoc($res)) {
+                                ?>
+                                <tr>
+                                    <td><?php echo $row['nama_lapangan'] ?></td>
+                                    <td><?php echo $row['ukuran'] ?></td>
+                                    <td><?php echo $row['harga'] ?></td>
+                                    <td><?php echo $row['keterangan'] ?></td>
+                                    <td><?php echo $row['gambar'] ?></td>
+                                    <td>
+                                        <a href="editlapangan.php?id=<?php echo $row['id_lapangan'] ?>"
+                                           class="btn btn-primary">Edit</a>
+                                        <a href="proses/proseshapuslapangan.php?id=<?php echo $row['id_lapangan'] ?>"
+                                           class="btn btn-danger">Hapus</a>
+                                    </td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                            </tbody>
 
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <a class="navbar-brand" href="#home">
-                        <img alt="Brand" src="../img/logo.png">
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a  class="nav-link js-scroll-trigger" href="../index.php">Keluar</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <section>
-            <div class="container">
-                <div class="daftarlapangan">
-                    <div class="row">
-                        <h2><strong>Daftar Lapangan</strong></h2>
-                        <br>
-                        <div class="col-md-7" id="daftarlapangan" >
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Nama Lapangan</th>
-                                        <th>Ukuran</th>
-                                        <th>Harga</th>
-                                        <th>Keterangan</th>
-                                        <th>Gambar</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    while ($row=mysqli_fetch_assoc($res)) {
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $row['nama_lapangan'] ?></td>
-                                        <td><?php echo $row['ukuran']?></td>
-                                        <td><?php echo $row['harga']?></td>
-                                        <td><?php echo $row['keterangan'] ?></td>
-                                        <td><?php echo $row['gambar'] ?></td>
-                                        <td>
-                                            <a href="editlapangan.php?id=<?php echo $row['id_lapangan'] ?>" class="btn btn-primary">Edit</a>
-                                            <a href="proses/proseshapuslapangan.php?id=<?php echo $row['id_lapangan'] ?>" class="btn btn-danger">Hapus</a>
-                                        </td>
-                                    </tr>
-                                    <?php
-                                        }
-                                    ?>
-                                </tbody>
-
-                            </table>
+                        </table>
                     </div>
                 </div>
                 <div class="tombol">
@@ -109,10 +91,10 @@
         </div>
         <br>
         <br>
-    </div>
+        </div>
     </section>
 
-        <footer>
+    <footer>
         <div class="row">
         </div>
     </footer>

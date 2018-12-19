@@ -26,6 +26,7 @@ $resUser = mysqli_query($link, $queryUser);
 <?php
 include "navbar.php";
 ?>
+
 <br>
 <br>
 <div class="content">

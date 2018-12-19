@@ -88,6 +88,8 @@ include "navbar.php";
 
 <div class="container">
 
+    <h3>Masukkan Tanggal</h3>
+
     <div class="tanggal">
         <form action="cekbooking.php" method="post">
             <div class="form-group">
@@ -148,7 +150,6 @@ include "navbar.php";
                         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
                 </div>
-
 
                 <div class="col-md-6">
                     <a href="#thumbnail" class="thumbnail">
