@@ -1,7 +1,7 @@
 <?php
 include "../koneksi.php";
 if (!isset($_SESSION['level']) || $_SESSION['level'] != "member") {
-    header("Location: ../ind.php");
+    header("Location: ../index.php");
     exit;
 }
 

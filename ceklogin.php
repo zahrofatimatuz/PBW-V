@@ -38,7 +38,7 @@ if ($result > 0) {
         $_SESSION['id_user'] = $data['id_user'];
         $_SESSION['level'] = "member";
         // alihkan ke halaman dashboard member
-        header("Location: admin/user/Home.php");
+        header("Location: user/Home.php");
 
     }
 }else {
