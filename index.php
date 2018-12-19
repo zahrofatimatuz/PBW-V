@@ -2,7 +2,7 @@
 include "koneksi.php";
 //redirect jika sudah login
 if (isset($_SESSION['id_user'])) {
-    if ($data['level'] == "admin") {
+    if ($_SESSION['level'] == "admin") {
         header("Location: admin/homeadmin.php");
         exit;
     }else{

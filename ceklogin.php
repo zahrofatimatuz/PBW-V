@@ -29,8 +29,7 @@ if ($result > 0) {
         $_SESSION['nama'] = $data['nama'];
         $_SESSION['level'] = "admin";
         // alihkan ke halaman dashboard admin
-        echo "<script>alert('anda berhasil masuk'); window.location.href = 'admin/homeadmin.php';</script>";
-
+        header("Location: admin/homeadmin.php");
 
         // cek jika user login sebagai member
     } else if ($data['level'] == "member") {
@@ -39,7 +38,7 @@ if ($result > 0) {
         $_SESSION['id_user'] = $data['id_user'];
         $_SESSION['level'] = "member";
         // alihkan ke halaman dashboard member
-        echo "<script>alert('anda berhasil masuk'); window.location.href = 'user/Home.php';</script>";
+        header("Location: admin/user/Home.php");
 
     }
 }else {
