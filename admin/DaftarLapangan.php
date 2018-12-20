@@ -1,8 +1,3 @@
-    <?php
-    include "../koneksi.php";
-    $query = "SELECT * FROM lapangan";
-    $res = mysqli_query($link, $query);
-    ?>
     <!DOCTYPE html>
     <html lang="en" id="home">
 
@@ -38,17 +33,20 @@
     <?php
     include "navbaradmin.php";
     ?>
-
+<?php
+include '../koneksi.php';
+?>
     <section>
         <div class="container">
             <div class="daftarlapangan">
                 <div class="row">
-                    <h2><strong>Daftar Lapangan</strong></h2>
+                    <h2><strong><center> Daftar Lapangan </center></strong></h2>
                     <br>
                     <div class="col-md-7" id="daftarlapangan">
                         <table class="table table-hover">
                             <thead>
                             <tr>
+                                <th>no</th>
                                 <th>Nama Lapangan</th>
                                 <th>Ukuran</th>
                                 <th>Harga</th>
@@ -59,9 +57,18 @@
                             </thead>
                             <tbody>
                             <?php
-                            while ($row = mysqli_fetch_assoc($res)) {
+                            $halaman = 5; //batasan halaman
+                            $page = isset($_GET['halaman'])? (int)$_GET["halaman"]:1;
+                            $mulai = ($page>1) ? ($page * $halaman) - $halaman : 0;
+                            $result = mysqli_query ($link, "SELECT * FROM lapangan");
+                            $total = mysqli_num_rows($result);
+                            $pages = ceil($total/$halaman);
+                            $query = mysqli_query($link, "select * from lapangan LIMIT $mulai, $halaman") or die(mysql_error); 
+                            $no =$mulai+1;
+                            while ($row=mysqli_fetch_assoc($query)) {
                                 ?>
                                 <tr>
+                                    <td><?php echo $no++; ?></td>
                                     <td><?php echo $row['nama_lapangan'] ?></td>
                                     <td><?php echo $row['ukuran'] ?></td>
                                     <td><?php echo $row['harga'] ?></td>
@@ -78,8 +85,13 @@
                             }
                             ?>
                             </tbody>
-
                         </table>
+                        <div class="">
+                        <center>
+                        <?php for ($i=1; $i<=$pages ; $i++){ ?>
+                        <a href="?halaman=<?php echo $i; ?>"><?php echo $i; ?></a>
+                        <?php } ?>
+                        </center>
                     </div>
                 </div>
                 <div class="tombol">

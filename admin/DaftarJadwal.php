@@ -1,8 +1,3 @@
-    <?php
-    include "../koneksi.php";
-    $query = "SELECT * FROM jadwal";
-    $res = mysqli_query($link, $query);
-    ?>
     <!DOCTYPE html>
     <html lang="en" id="home">
 
@@ -41,19 +36,20 @@
     ?>
 
     <div class="sidebar">
-        <a class="active" href="#home">Home</a>
+        <a class="active" href="#">Home</a>
         <a href="#news">News</a>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
     </div>
-
-
+<?php
+include '../koneksi.php';
+?>
     <section>
         <div class="container">
             <div class="daftarlapangan">
                 <div class="row">
                     <h2><strong>
-                            <center>Daftar Lapangan</center>
+                            <center>Daftar Jadwal</center>
                         </strong></h2>
                     <br>
                     <div class="col-md-7" id="daftarlapangan">
@@ -61,6 +57,7 @@
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
+                                    <th>no</th>
                                     <th>Id Jadwal</th>
                                     <th>Jadwal</th>
                                     <th>Action</th>
@@ -68,9 +65,18 @@
                                 </thead>
                                 <tbody>
                                 <?php
-                                while ($row = mysqli_fetch_assoc($res)) {
+                                $halaman = 5; //batasan halaman
+                                $page = isset($_GET['halaman'])? (int)$_GET["halaman"]:1;
+                                $mulai = ($page>1) ? ($page * $halaman) - $halaman : 0;
+                                $result = mysqli_query ($link, "SELECT * FROM jadwal");
+                                $total = mysqli_num_rows($result);
+                                $pages = ceil($total/$halaman); 
+                                $query = mysqli_query($link, "select * from jadwal LIMIT $mulai, $halaman") or die(mysql_error);
+                                $no =$mulai+1;
+                                while ($row = mysqli_fetch_assoc($query)) {
                                 ?>
                                 <tr>
+                                    <td><?php echo $no++; ?></td>
                                     <td><?php echo $row['id_jadwal'] ?></td>
                                     <td><?php echo $row['jadwal'] ?></td>
                                     <td><a href="proses/proseshapusjadwal.php?id=<?php echo $row['id_jadwal'] ?>"
@@ -78,10 +84,14 @@
                                     <?php
                                     }
                                     ?>
-
                                 </tbody>
-
                             </table>
+                            <div class="">
+                            <center>
+                            <?php for ($i=1; $i<=$pages ; $i++){ ?>
+                            <a href="?halaman=<?php echo $i; ?>"><?php echo $i; ?></a>
+                            <?php } ?>
+                            </center>
                         </center>
                     </div>
 

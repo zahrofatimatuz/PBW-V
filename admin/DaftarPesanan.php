@@ -1,8 +1,3 @@
-    <?php
-    include "../koneksi.php";
-    $query = "SELECT * FROM lapangan";
-    $res = mysqli_query($link, $query);
-    ?>
     <!DOCTYPE html>
     <html lang="en" id="home">
 
@@ -38,7 +33,9 @@
     <?php
     include "navbaradmin.php";
     ?>
-
+    <?php
+    include '../koneksi.php';
+    ?>
     <section>
         <div class="container">
             <div class="daftarlapangan">
@@ -48,9 +45,10 @@
                         </strong></h2>
                     <br>
                     <div class="col-md-7" id="daftarlapangan">
-                        <table class="table table-hover">
+                        <center><table class="table table-hover">
                             <thead>
                             <tr>
+                                <th>no</th>
                                 <th>Id Pesanan</th>
                                 <th>Nama</th>
                                 <th>Tanggal</th>
@@ -59,51 +57,53 @@
                             </thead>
                             <tbody>
                             <?php
-                            // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim ORDER BY nim ASC
-                            $query = "SELECT * FROM pesanan p 
-                                  JOIN user u ON p.id_user=u.id_user";
-                            $result = mysqli_query($link, $query);
-                            //mengecek apakah ada error ketika menjalankan query
-                            if (!$result) {
-                                die ("Query Error: " . mysqli_errno($link) .
-                                    " - " . mysqli_error($link));
-                            }
-
-                            //buat perulangan untuk element tabel dari data mahasiswa
-                            $no = 1; //variabel untuk membuat nomor urut
-                            // hasil query akan disimpan dalam variabel $data dalam bentuk array
-                            // kemudian dicetak dengan perulangan while
-                            while ($data = mysqli_fetch_assoc($result)) {
-                                // mencetak / menampilkan data
-                                echo "<tr>";
-                                echo "<td>$data[id_pesanan]</td>"; //menampilkan data nim
-                                echo "<td>$data[nama]</td>"; //menampilkan data nama
-                                echo "<td>$data[tanggal_pesanan]</td>"; //menampilkan data fakultas
-                                // membuat link untuk mengedit dan menghapus data
-                                echo '<td> 
-                                  <a href="edit.php?id=' . $data['id_pesanan'] . '">Edit</a> /
-                                  <a href="hapus.php?id=' . $data['id_pesanan'] . '"
+                            $halaman = 5; //batasan halaman
+                            $page = isset($_GET['halaman'])? (int)$_GET["halaman"]:1;
+                            $mulai = ($page>1) ? ($page * $halaman) - $halaman : 0;
+                            $result = mysqli_query ($link, "SELECT * FROM pesanan p 
+                                  JOIN user u ON p.id_user=u.id_user");
+                            $total = mysqli_num_rows($result);
+                            $pages = ceil($total/$halaman);
+                            $query = mysqli_query ($link, "SELECT * FROM pesanan p 
+                                  JOIN user u ON p.id_user=u.id_user LIMIT $mulai, $halaman");
+                            $no =$mulai+1;
+                            while ($row = mysqli_fetch_assoc($query)) {
+                                ?>
+                                <tr>
+                                    <td><?php echo $no++; ?></td>
+                                    <td><?php echo $row['id_pesanan']; ?></td>
+                                    <td><?php echo $row['nama']; ?></td>
+                                    <td><?php echo $row['tanggal_pesanan']; ?></td>
+                                    <td><a href="edit.php?id=' . $data['id_pesanan'] . '">Edit</a> /
+                                    <a href="hapus.php?id=' . $data['id_pesanan'] . '"
                                       onclick="return confirm(\'Anda yakin akan menghapus data?\')">Hapus</a>
-                                </td>';
-                                echo "</tr>";
-                                $no++; // menambah nilai nomor urut
-                            }
-                            ?>
+                                   </td>
+                                </tr>        
+                                <?php
+                                }
+                                ?>         
                             </tbody>
                         </table>
+                        <div class="">
+                        <center>
+                          <?php for ($i=1; $i<=$pages ; $i++){ ?>
+                          <a href="?halaman=<?php echo $i; ?>"><?php echo $i; ?></a>
+                          <?php } ?>
+                        </center>
+                    </div>
+     </center>
                     </div>
                 </div>
-
                 <div class="tombol">
-                    <input type="submit" value="Tambah" id="simpan" class="btn simpan rounded-0">
-                    <input type="submit" value="Ubah" id="batal" class="btn batal">
-                    <input type="submit" value="Hapus" id="simpan" class="btn simpan rounded-0">
+                    <form action="../user/booking.php" method="post">
+                        <input type="submit" value="Tambah" id="simpan" class="btn simpan rounded-0">
+                    </form>
                 </div>
             </div>
-            <br>
-            <br>
         </div>
-
+        <br>
+        <br>
+    </div>
 
     </section>
 
@@ -112,6 +112,7 @@
         <div class="row">
 
         </div>
+
 
     </footer>
 

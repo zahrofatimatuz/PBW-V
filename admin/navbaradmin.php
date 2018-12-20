@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#home">
+            <a class="navbar-brand" href="homeadmin.php">
                 <img alt="Brand" src="../img/logo.png">
             </a>
         </div>

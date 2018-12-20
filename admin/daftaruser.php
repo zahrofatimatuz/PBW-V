@@ -1,8 +1,3 @@
-    <?php
-    include "../koneksi.php";
-    $query = "SELECT * FROM user";
-    $res = mysqli_query($link, $query);
-    ?>
     <!DOCTYPE html>
     <html lang="en" id="home">
 
@@ -38,7 +33,9 @@
     <?php
     include "navbaradmin.php";
     ?>
-
+        <?php
+        include '../koneksi.php';
+        ?>
     <section>
         <div class="container">
             <div class="daftarlapangan">
@@ -52,6 +49,7 @@
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
+                                    <th>no</th>
                                     <th>Id User</th>
                                     <th>Nama</th>
                                     <th>Email</th>
@@ -60,9 +58,18 @@
                                 </thead>
                                 <tbody>
                                 <?php
-                                while ($row = mysqli_fetch_assoc($res)) {
+                                $halaman = 5; //batasan halaman
+                                $page = isset($_GET['halaman'])? (int)$_GET["halaman"]:1;
+                                $mulai = ($page>1) ? ($page * $halaman) - $halaman : 0;
+                                $result = mysqli_query ($link, "select * from user");
+                                $total = mysqli_num_rows($result);
+                                $pages = ceil($total/$halaman); 
+                                $query = mysqli_query($link, "select * from user LIMIT $mulai, $halaman") or die(mysql_error);
+                                $no =$mulai+1;
+                                while ($row = mysqli_fetch_assoc($query)) {
                                 ?>
                                 <tr>
+                                    <td><?php echo $no++; ?></td>
                                     <td><?php echo $row['id_user'] ?></td>
                                     <td><?php echo $row['nama'] ?></td>
                                     <td><?php echo $row['email'] ?></td>
@@ -70,10 +77,13 @@
                                     <?php
                                     }
                                     ?>
-
                                 </tbody>
-
                             </table>
+                            <div class="">
+                              <center>
+                              <?php for ($i=1; $i<=$pages ; $i++){ ?>
+                              <a href="?halaman=<?php echo $i; ?>"><?php echo $i; ?></a>
+                              <?php } ?>
                         </center>
                     </div>
                 </div>
