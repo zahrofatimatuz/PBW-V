@@ -4,7 +4,7 @@ session_start();
 $host = "localhost";
 $user = "root";
 $pass = "";
-$name = "booking";
+$name = "web";
 $link = mysqli_connect($host, $user, $pass, $name);
 
 if (!$link) {

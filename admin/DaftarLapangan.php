@@ -94,8 +94,8 @@ include '../koneksi.php';
                         </center>
                     </div>
                 </div>
-                <div class="tombol">
-                    <form action="tambahlapangan.php" method="">
+              <div class="tombol">
+                    <form action="tambahlapangan.php" method="post">
                         <input type="submit" value="Tambah" id="simpan" class="btn simpan rounded-0">
                     </form>
                 </div>

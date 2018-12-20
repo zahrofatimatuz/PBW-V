@@ -10,8 +10,8 @@ $ext = pathinfo($path, PATHINFO_EXTENSION);
 
 $name = uniqid().'.'.$ext;
 move_uploaded_file($tmp_name, "../uploads/$name");
-
-$sql = "INSERT INTO pembayaran VALUES (NULL ,$bayar,'$name',$idPesanan)";
+$status = 'belum diverifikasi';
+$sql = "INSERT INTO pembayaran VALUES (NULL ,$bayar,'$name',$idPesanan, '$status')";
 $result = mysqli_query($link, $sql);
 //mengecek apakah ada error ketika menjalankan query
 if (!$result) {

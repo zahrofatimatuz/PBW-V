@@ -44,7 +44,7 @@
             <div class="daftarlapangan">
                 <div class="row">
                     <h2><strong>
-                            <center>Daftar Pesanan</center>
+                            <center>Daftar Pembayaran2</center>
                         </strong></h2>
                     <br>
                     <div class="col-md-7" id="daftarlapangan">
@@ -57,60 +57,64 @@
                                     <th>Nama</th>
                                     <th>Tanggal</th>
                                     <th>Lapangan</th>
+                                    <th>Id Pembayaran</th>
                                     <th>Harga</th>
                                     <th>Status Pesanan</th>
+                                    <th>Verifikasi</th>
                                     <th></th>
                                 </tr>
                                 </thead>
-
-                            </table>
+                                <tbody>
+                <?php
+                $halaman = 5; //batasan halaman
+                $page = isset($_GET['halaman'])? (int)$_GET["halaman"]:1;
+                $mulai = ($page>1) ? ($page * $halaman) - $halaman : 0;
+                $result = mysqli_query ($link, "SELECT b.id_pesanan,u.nama,p.tanggal_pesanan,l.nama_lapangan,b.idPembayaran,b.bayar, b.status  FROM user u JOIN pesanan p ON u.id_user=p.id_user JOIN
+                        detail_pesanan d ON p.id_pesanan=d.id_pesanan JOIN lapangan l ON d.id_lapangan=l.id_lapangan JOIN pembayaran b ON b.id_pesanan=d.id_pesanan");
+                $total = mysqli_num_rows($result);
+                $pages = ceil($total/$halaman);
+                $query = mysqli_query ($link, "SELECT b.id_pesanan,u.nama,p.tanggal_pesanan,l.nama_lapangan,b.idPembayaran,b.bayar, b.status  FROM user u JOIN pesanan p ON u.id_user=p.id_user JOIN
+                        detail_pesanan d ON p.id_pesanan=d.id_pesanan JOIN lapangan l ON d.id_lapangan=l.id_lapangan JOIN pembayaran b ON b.id_pesanan=d.id_pesanan LIMIT $mulai, $halaman");
+                            $no =$mulai+1;
+                while ($row = mysqli_fetch_assoc($query)) {
+                    ?>
+                                <tr>
+                                    <td><?php echo $no++; ?></td>
+                                    <td><?php echo $row['id_pesanan']; ?></td>
+                                    <td><?php echo $row['nama']; ?></td>
+                                    <td><?php echo $row['tanggal_pesanan']; ?></td>
+                                    <td><?php echo $row['nama_lapangan']; ?></td>
+                                    <td><?php echo $row['idPembayaran']; ?></td>
+                                    <td><?php echo $row['bayar']; ?></td>
+                                    <td><?php echo $row['status']; ?></td>
+                                    <td>
+                                        <a href="proses/proseseupdatestatuspembayaran.php?id=<?php echo $row['idPembayaran'] ?>"
+                                           class="btn btn-primary">verifikasi</a>
+                                        <a href=".php?id=<?php echo $row['idPembayaran'] ?>"
+                                           class="btn btn-danger">tolak</a>
+                                    </td>
+                                    </tr>        
+                                <?php
+                                }
+                                ?>         
+                            </tbody>
+                        </table>
+                        <div class="">
+                        <center>
+                          <?php for ($i=1; $i<=$pages ; $i++){ ?>
+                          <a href="?halaman=<?php echo $i; ?>"><?php echo $i; ?></a>
+                          <?php } ?>
                         </center>
                     </div>
+     </center>
+                    </div>
                 </div>
-                <?php
-                // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim ORDER BY nim ASC
-                $query = "SELECT id_user,nama,tanggal_pesanan,jumlah_jam,harga  FROM user JOIN pesanan ON id_use=id_user JOIN
-                        detail_pesanan ON id_pesanan=id_pesanan ";
-                $result = mysqli_query($link, $query);
-                //mengecek apakah ada error ketika menjalankan query
-                if (!$result) {
-                    die ("Query Error: " . mysqli_errno($link) .
-                        " - " . mysqli_error($link));
-                }
-
-                //buat perulangan untuk element tabel dari data mahasiswa
-                $no = 1; //variabel untuk membuat nomor urut
-                // hasil query akan disimpan dalam variabel $data dalam bentuk array
-                // kemudian dicetak dengan perulangan while
-                while ($data = mysqli_fetch_assoc($result)) {
-                    // mencetak / menampilkan data
-                    echo "<tr>";
-                    echo "<td><center>$no</td>"; //menampilkan no urut
-                    echo "<td><center>$data[nama]</td>"; //menampilkan data nim
-                    echo "<td><center>$data[nim]</td>"; //menampilkan data nama
-                    echo "<td><center>$data[jurusan]</td>"; //menampilkan data fakultas
-                    echo "<td><center>$data[angkatan]</td>"; //menampilkan data jurusan
-                    echo "<td><center>$data[sie]</td>"; //menampilkan data ipk
-                    // membuat link untuk mengedit dan menghapus data
-                    echo '<td> <center>
-                  <a href="edit.php?id=' . $data['id'] . '">Edit</a> /
-                  <a href="hapus.php?id=' . $data['id'] . '"
-                      onclick="return confirm(\'Anda yakin akan menghapus data?\')">Hapus</a>
-                </td>';
-                    echo "</tr>";
-                    $no++; // menambah nilai nomor urut
-                }
-                ?>
-                <div class="tombol">
-                    <input type="submit" value="Tambah" id="simpan" class="btn simpan rounded-0">
-                    <input type="submit" value="Ubah" id="batal" class="btn batal">
-                    <input type="submit" value="Hapus" id="simpan" class="btn simpan rounded-0">
-                </div>
+                
             </div>
-            <br>
-            <br>
         </div>
-
+        <br>
+        <br>
+    </div>
 
     </section>
 

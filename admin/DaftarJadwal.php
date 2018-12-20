@@ -1,5 +1,6 @@
-    <!DOCTYPE html>
-    <html lang="en" id="home">
+    <?php
+    include '../koneksi.php';
+    ?>
 
     <head>
 
@@ -14,6 +15,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--        <script src="../js/jquery-3.3.1.min.js"></script>-->
+<!--        <script src="../js/bootstrap.min.js"></script>-->
 
         <!-- Font Online -->
 
@@ -41,15 +44,13 @@
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
     </div>
-<?php
-include '../koneksi.php';
-?>
+
     <section>
         <div class="container">
             <div class="daftarlapangan">
                 <div class="row">
                     <h2><strong>
-                            <center>Daftar Jadwal</center>
+                            <center id="headtext">Daftar Jadwal</center>
                         </strong></h2>
                     <br>
                     <div class="col-md-7" id="daftarlapangan">
@@ -66,32 +67,36 @@ include '../koneksi.php';
                                 <tbody>
                                 <?php
                                 $halaman = 5; //batasan halaman
-                                $page = isset($_GET['halaman'])? (int)$_GET["halaman"]:1;
-                                $mulai = ($page>1) ? ($page * $halaman) - $halaman : 0;
-                                $result = mysqli_query ($link, "SELECT * FROM jadwal");
+                                $page = isset($_GET['halaman']) ? (int)$_GET["halaman"] : 1;
+                                $mulai = ($page > 1) ? ($page * $halaman) - $halaman : 0;
+                                $result = mysqli_query($link, "SELECT * FROM jadwal");
                                 $total = mysqli_num_rows($result);
-                                $pages = ceil($total/$halaman); 
+                                $pages = ceil($total / $halaman);
                                 $query = mysqli_query($link, "select * from jadwal LIMIT $mulai, $halaman") or die(mysql_error);
-                                $no =$mulai+1;
+                                $no = $mulai + 1;
                                 while ($row = mysqli_fetch_assoc($query)) {
                                 ?>
                                 <tr>
                                     <td><?php echo $no++; ?></td>
                                     <td><?php echo $row['id_jadwal'] ?></td>
                                     <td><?php echo $row['jadwal'] ?></td>
-                                    <td><a href="proses/proseshapusjadwal.php?id=<?php echo $row['id_jadwal'] ?>"
-                                           class="btn btn-danger">Hapus</a></td>
+                                    <td>
+                                        <form class="formhapus" method="POST">
+                                            <input type="hidden" name="id" value="<?php echo $row['id_jadwal'] ?>" />
+                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                        </form>
+                                    </td>
                                     <?php
                                     }
                                     ?>
                                 </tbody>
                             </table>
                             <div class="">
-                            <center>
-                            <?php for ($i=1; $i<=$pages ; $i++){ ?>
-                            <a href="?halaman=<?php echo $i; ?>"><?php echo $i; ?></a>
-                            <?php } ?>
-                            </center>
+                                <center>
+                                    <?php for ($i = 1; $i <= $pages; $i++) { ?>
+                                        <a href="?halaman=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                    <?php } ?>
+                                </center>
                         </center>
                     </div>
 
@@ -109,6 +114,92 @@ include '../koneksi.php';
 
     </section>
 
+    <div id="content">
+
+    </div>
+
+
+    <script>
+        // $(document).on('click','.hapus_jadwal',function(){
+        //     var id = $(this).attr('data-id');
+        //     $.ajax({
+        //         method: "POST",
+        //         url: "proses/proseshapusjadwal.php",
+        //         data: { id_jadwal:id , type:"delete"},
+        //
+        //     });
+        // });
+        $(document).ready(function() {
+            // alert("tes");
+            $(".formhapus").on('submit', (function () {
+                // e.preventDefault();
+                $.ajax({
+                    url: "http://localhost/PBW-V/admin/proses/proseshapusjadwal.php",
+                    method: "POST",
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    beforeSend: function () {
+
+                        $("#headtext").html("Menghapus data...");
+
+                    },
+                    success: function (result) {
+                        $("#headtext").html("Jadwal berhasil dihapus");
+                        // setTimeout(function() {
+                        //     window.location = "http://localhost/paws/?dashboard"}, 4000);
+                    },
+                    error: function (xhr, Status, err) {
+                        // $("#headtext").html("Terjadi error : "+Status);
+                    }
+
+                });
+            }));
+        });
+    </script>
+
+    <!-- <script type="text/javascript">
+        $(document).read(function() {
+            loadData();
+
+            $('form').on('submit',function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type:$(this).attr('method'),
+                    url:$(this).attr('action'),
+                    data:$(this).serialize(),
+                    success:function (){
+                        loadData();
+                        resetForm();
+                    }
+                });
+
+            })
+        })
+
+        function loadData() {
+            $.get('DaftarJadwal.php',funtion(data){
+                $('#content').html(data);
+                $('.hapusData').click(function (e) {
+                    e.preventDefault();
+                    $.ajax({
+                        type:'get',
+                        url:$(this).attr('href'),
+                        success:function (){
+                            loadData();
+                })
+            })
+        }
+
+        function resetForm(){
+            $('[type=text]').val('');
+            $('[name=jadwal]').focus();
+        }
+    </script>
+    -->
+
+
 
     <footer>
         <div class="row">
@@ -117,8 +208,7 @@ include '../koneksi.php';
 
     </footer>
 
-    <script src="../js/jquery-3.3.1.min"></script>
-    <script src="../js/bootstrap.min.js"></script>
+
     </div>
     </div>
     </body>
