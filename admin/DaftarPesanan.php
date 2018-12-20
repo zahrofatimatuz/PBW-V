@@ -45,53 +45,53 @@
                         </strong></h2>
                     <br>
                     <div class="col-md-7" id="daftarlapangan">
-                        <center><table class="table table-hover">
-                            <thead>
-                            <tr>
-                                <th>no</th>
-                                <th>Id Pesanan</th>
-                                <th>Nama</th>
-                                <th>Tanggal</th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                            $halaman = 5; //batasan halaman
-                            $page = isset($_GET['halaman'])? (int)$_GET["halaman"]:1;
-                            $mulai = ($page>1) ? ($page * $halaman) - $halaman : 0;
-                            $result = mysqli_query ($link, "SELECT * FROM pesanan p 
-                                  JOIN user u ON p.id_user=u.id_user");
-                            $total = mysqli_num_rows($result);
-                            $pages = ceil($total/$halaman);
-                            $query = mysqli_query ($link, "SELECT * FROM pesanan p 
-                                  JOIN user u ON p.id_user=u.id_user LIMIT $mulai, $halaman");
-                            $no =$mulai+1;
-                            while ($row = mysqli_fetch_assoc($query)) {
-                                ?>
-                                <tr>
-                                    <td><?php echo $no++; ?></td>
-                                    <td><?php echo $row['id_pesanan']; ?></td>
-                                    <td><?php echo $row['nama']; ?></td>
-                                    <td><?php echo $row['tanggal_pesanan']; ?></td>
-                                    <td><a href="edit.php?id=' . $data['id_pesanan'] . '">Edit</a> /
-                                    <a href="hapus.php?id=' . $data['id_pesanan'] . '"
-                                      onclick="return confirm(\'Anda yakin akan menghapus data?\')">Hapus</a>
-                                   </td>
-                                </tr>        
-                                <?php
-                                }
-                                ?>         
-                            </tbody>
-                        </table>
-                        <div class="">
                         <center>
-                          <?php for ($i=1; $i<=$pages ; $i++){ ?>
-                          <a href="?halaman=<?php echo $i; ?>"><?php echo $i; ?></a>
-                          <?php } ?>
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th>no</th>
+                                    <th>Id Pesanan</th>
+                                    <th>Nama</th>
+                                    <th>Tanggal</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                $halaman = 5; //batasan halaman
+                                $page = isset($_GET['halaman']) ? (int)$_GET["halaman"] : 1;
+                                $mulai = ($page > 1) ? ($page * $halaman) - $halaman : 0;
+                                $result = mysqli_query($link, "SELECT * FROM pesanan p 
+                                      JOIN user u ON p.id_user=u.id_user");
+                                $total = mysqli_num_rows($result);
+                                $pages = ceil($total / $halaman);
+                                $query = mysqli_query($link, "SELECT * FROM pesanan p 
+                                      JOIN user u ON p.id_user=u.id_user LIMIT $mulai, $halaman");
+                                $no = $mulai + 1;
+                                while ($row = mysqli_fetch_assoc($query)) {
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $no++; ?></td>
+                                        <td><?php echo $row['id_pesanan']; ?></td>
+                                        <td><?php echo $row['nama']; ?></td>
+                                        <td><?php echo $row['tanggal_pesanan']; ?></td>
+                                        <td><a href="DetailPesanan.php?id=<?php echo $row['id_pesanan'] ?>"
+                                               class="btn btn-primary">Detail</a>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                }
+                                ?>
+                                </tbody>
+                            </table>
+                            <div class="">
+                                <center>
+                                    <?php for ($i = 1; $i <= $pages; $i++) { ?>
+                                        <a href="?halaman=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                    <?php } ?>
+                                </center>
+                            </div>
                         </center>
-                    </div>
-     </center>
                     </div>
                 </div>
                 <div class="tombol">
@@ -103,7 +103,7 @@
         </div>
         <br>
         <br>
-    </div>
+        </div>
 
     </section>
 

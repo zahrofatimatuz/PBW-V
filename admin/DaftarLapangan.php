@@ -33,14 +33,16 @@
     <?php
     include "navbaradmin.php";
     ?>
-<?php
-include '../koneksi.php';
-?>
+    <?php
+    include '../koneksi.php';
+    ?>
     <section>
         <div class="container">
             <div class="daftarlapangan">
                 <div class="row">
-                    <h2><strong><center> Daftar Lapangan </center></strong></h2>
+                    <h2><strong>
+                            <center> Daftar Lapangan</center>
+                        </strong></h2>
                     <br>
                     <div class="col-md-7" id="daftarlapangan">
                         <table class="table table-hover">
@@ -58,14 +60,14 @@ include '../koneksi.php';
                             <tbody>
                             <?php
                             $halaman = 5; //batasan halaman
-                            $page = isset($_GET['halaman'])? (int)$_GET["halaman"]:1;
-                            $mulai = ($page>1) ? ($page * $halaman) - $halaman : 0;
-                            $result = mysqli_query ($link, "SELECT * FROM lapangan");
+                            $page = isset($_GET['halaman']) ? (int)$_GET["halaman"] : 1;
+                            $mulai = ($page > 1) ? ($page * $halaman) - $halaman : 0;
+                            $result = mysqli_query($link, "SELECT * FROM lapangan");
                             $total = mysqli_num_rows($result);
-                            $pages = ceil($total/$halaman);
-                            $query = mysqli_query($link, "select * from lapangan LIMIT $mulai, $halaman") or die(mysql_error); 
-                            $no =$mulai+1;
-                            while ($row=mysqli_fetch_assoc($query)) {
+                            $pages = ceil($total / $halaman);
+                            $query = mysqli_query($link, "select * from lapangan LIMIT $mulai, $halaman") or die(mysql_error);
+                            $no = $mulai + 1;
+                            while ($row = mysqli_fetch_assoc($query)) {
                                 ?>
                                 <tr>
                                     <td><?php echo $no++; ?></td>
@@ -87,18 +89,20 @@ include '../koneksi.php';
                             </tbody>
                         </table>
                         <div class="">
-                        <center>
-                        <?php for ($i=1; $i<=$pages ; $i++){ ?>
-                        <a href="?halaman=<?php echo $i; ?>"><?php echo $i; ?></a>
-                        <?php } ?>
-                        </center>
+                            <center>
+                                <?php for ($i = 1; $i <= $pages; $i++) { ?>
+                                    <a href="?halaman=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                <?php } ?>
+                            </center>
+                        </div>
                     </div>
                 </div>
-              <div class="tombol">
-                    <form action="tambahlapangan.php" method="post">
-                        <input type="submit" value="Tambah" id="simpan" class="btn simpan rounded-0">
-                    </form>
-                </div>
+
+                    <div class="tombol">
+                        <form action="tambahlapangan.php" method="post">
+                            <input type="submit" value="Tambah" id="simpan" class="btn simpan rounded-0">
+                        </form>
+                    </div>
             </div>
         </div>
         <br>
